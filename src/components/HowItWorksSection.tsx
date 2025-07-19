@@ -24,7 +24,7 @@ const HowItWorksSection = () => {
   ];
 
   return (
-    <section className="py-24 px-6 relative">
+    <section id="how-it-works" className="py-24 px-6 relative">
       <div className="container mx-auto">
         {/* Section header */}
         <div className="text-center mb-16 space-y-4">

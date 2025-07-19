@@ -1,5 +1,12 @@
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
+import {
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+  CarouselNext,
+  CarouselPrevious,
+} from "@/components/ui/carousel";
 import beastFire from "@/assets/beast-fire.jpg";
 import beastIce from "@/assets/beast-ice.jpg";
 import beastNature from "@/assets/beast-nature.jpg";
@@ -59,7 +66,7 @@ const GallerySection = () => {
   ];
 
   return (
-    <section className="py-24 px-6 relative">
+    <section id="gallery" className="py-24 px-6 relative">
       <div className="container mx-auto">
         {/* Section header */}
         <div className="text-center mb-16 space-y-4">
@@ -71,63 +78,70 @@ const GallerySection = () => {
           </p>
         </div>
 
-        {/* Gallery grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
-          {beasts.map((beast, index) => (
-            <div 
-              key={beast.id}
-              className="group relative overflow-hidden rounded-2xl bg-gradient-card border border-border/50 hover:border-primary/50 transition-all duration-500 hover:shadow-glow hover:transform hover:scale-[1.02]"
-              style={{ animationDelay: `${index * 0.1}s` }}
-            >
-              {/* Image container */}
-              <div className="relative aspect-square overflow-hidden">
-                <img 
-                  src={beast.image}
-                  alt={`${beast.name} - ${beast.element} elemental AetherBeast`}
-                  className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
-                  loading="lazy"
-                />
-                
-                {/* Gradient overlay */}
-                <div className="absolute inset-0 bg-gradient-to-t from-background/80 via-transparent to-transparent"></div>
-                
-                {/* Rarity badge */}
-                <Badge 
-                  className={`absolute top-4 right-4 ${beast.rarityColor} text-white border-0 shadow-lg`}
-                >
-                  {beast.rarity}
-                </Badge>
+        {/* Gallery Slider */}
+        <div className="mb-16">
+          <Carousel className="w-full max-w-7xl mx-auto">
+            <CarouselContent className="-ml-4">
+              {beasts.map((beast, index) => (
+                <CarouselItem key={beast.id} className="pl-4 md:basis-1/2 lg:basis-1/3">
+                  <div 
+                    className="group relative overflow-hidden rounded-2xl bg-gradient-card border border-border/50 hover:border-primary/50 transition-all duration-500 hover:shadow-glow hover:transform hover:scale-[1.02] h-full"
+                    style={{ animationDelay: `${index * 0.1}s` }}
+                  >
+                    {/* Image container */}
+                    <div className="relative aspect-square overflow-hidden">
+                      <img 
+                        src={beast.image}
+                        alt={`${beast.name} - ${beast.element} elemental AetherBeast`}
+                        className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
+                        loading="lazy"
+                      />
+                      
+                      {/* Gradient overlay */}
+                      <div className="absolute inset-0 bg-gradient-to-t from-background/80 via-transparent to-transparent"></div>
+                      
+                      {/* Rarity badge */}
+                      <Badge 
+                        className={`absolute top-4 right-4 ${beast.rarityColor} text-white border-0 shadow-lg`}
+                      >
+                        {beast.rarity}
+                      </Badge>
 
-                {/* Hover overlay */}
-                <div className="absolute inset-0 bg-primary/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-              </div>
+                      {/* Hover overlay */}
+                      <div className="absolute inset-0 bg-primary/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                    </div>
 
-              {/* Content */}
-              <div className="p-6 space-y-3">
-                <div className="space-y-2">
-                  <h3 className="text-2xl font-bold text-foreground group-hover:text-primary transition-colors duration-300">
-                    {beast.name}
-                  </h3>
-                  <p className="text-muted-foreground">
-                    {beast.element} Element
-                  </p>
-                </div>
+                    {/* Content */}
+                    <div className="p-6 space-y-3">
+                      <div className="space-y-2">
+                        <h3 className="text-2xl font-bold text-foreground group-hover:text-primary transition-colors duration-300">
+                          {beast.name}
+                        </h3>
+                        <p className="text-muted-foreground">
+                          {beast.element} Element
+                        </p>
+                      </div>
 
-                {/* Stats or attributes could go here */}
-                <div className="flex justify-between items-center pt-2">
-                  <div className="text-sm text-muted-foreground">
-                    #{beast.id.toString().padStart(4, '0')}
+                      {/* Stats or attributes could go here */}
+                      <div className="flex justify-between items-center pt-2">
+                        <div className="text-sm text-muted-foreground">
+                          #{beast.id.toString().padStart(4, '0')}
+                        </div>
+                        <div className="text-sm font-semibold text-primary">
+                          0.5 ETH
+                        </div>
+                      </div>
+                    </div>
+
+                    {/* Shimmer effect on hover */}
+                    <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/5 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000 ease-in-out pointer-events-none"></div>
                   </div>
-                  <div className="text-sm font-semibold text-primary">
-                    0.5 ETH
-                  </div>
-                </div>
-              </div>
-
-              {/* Shimmer effect on hover */}
-              <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/5 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000 ease-in-out pointer-events-none"></div>
-            </div>
-          ))}
+                </CarouselItem>
+              ))}
+            </CarouselContent>
+            <CarouselPrevious className="left-4 bg-background/80 border-primary/50 hover:bg-primary/10" />
+            <CarouselNext className="right-4 bg-background/80 border-primary/50 hover:bg-primary/10" />
+          </Carousel>
         </div>
 
         {/* Call to action */}

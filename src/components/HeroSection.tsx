@@ -3,7 +3,7 @@ import heroImage from "@/assets/hero-aetherbeast.jpg";
 
 const HeroSection = () => {
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden cosmic-bg">
+    <section className="relative min-h-screen flex items-center justify-center overflow-hidden cosmic-bg pt-16">
       {/* Animated particles background */}
       <div className="particles">
         {Array.from({ length: 50 }).map((_, i) => (
