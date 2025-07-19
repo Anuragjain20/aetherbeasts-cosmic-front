@@ -7,206 +7,238 @@ All colors MUST be HSL for perfect theming.
 */
 
 @layer base {
-  :root {
-    /* Core Background & Text */
-    --background: 240 10% 3.9%;
-    --foreground: 280 25% 95%;
-
-    /* Card & Surface Colors */
-    --card: 240 10% 6%;
-    --card-foreground: 280 20% 90%;
-
-    --popover: 240 15% 8%;
-    --popover-foreground: 280 20% 90%;
-
-    /* Primary - Electric Blue with mystical glow */
-    --primary: 220 100% 60%;
-    --primary-foreground: 220 100% 95%;
-    --primary-glow: 220 100% 70%;
-
-    /* Secondary - Deep Purple for cosmic elements */
-    --secondary: 280 60% 25%;
-    --secondary-foreground: 280 30% 90%;
-
-    /* Accent - Fiery Orange for highlights */
-    --accent: 25 100% 60%;
-    --accent-foreground: 25 100% 95%;
-    --accent-glow: 25 100% 70%;
-
-    /* Muted tones */
-    --muted: 240 10% 15%;
-    --muted-foreground: 240 5% 65%;
-
-    /* Destructive */
-    --destructive: 0 84% 60%;
-    --destructive-foreground: 0 0% 98%;
-
-    /* Borders & Inputs */
-    --border: 240 10% 20%;
-    --input: 240 10% 15%;
-    --ring: 220 100% 60%;
-
-    /* Design System Extensions */
-    --cosmic-purple: 270 100% 30%;
-    --cosmic-purple-light: 270 80% 50%;
-    --electric-cyan: 190 100% 50%;
-    --mystic-green: 150 60% 40%;
-    --ember-orange: 25 100% 60%;
-    --shadow-deep: 240 20% 10%;
-
-    /* Gradients */
-    --gradient-cosmic: linear-gradient(135deg, hsl(var(--cosmic-purple)) 0%, hsl(var(--primary)) 100%);
-    --gradient-fire: linear-gradient(135deg, hsl(var(--accent)) 0%, hsl(var(--ember-orange)) 100%);
-    --gradient-ethereal: linear-gradient(135deg, hsl(var(--primary)) 0%, hsl(var(--electric-cyan)) 50%, hsl(var(--cosmic-purple-light)) 100%);
-    --gradient-card: linear-gradient(135deg, hsl(var(--card)) 0%, hsl(var(--muted)) 100%);
-
-    /* Shadows & Glows */
-    --shadow-glow: 0 0 40px hsl(var(--primary) / 0.3);
-    --shadow-accent-glow: 0 0 30px hsl(var(--accent) / 0.4);
-    --shadow-cosmic: 0 10px 40px hsl(var(--cosmic-purple) / 0.4);
-    --shadow-elevated: 0 25px 50px hsl(var(--shadow-deep) / 0.5);
-
-    --radius: 0.75rem;
-
-    --sidebar-background: 0 0% 98%;
-
-    --sidebar-foreground: 240 5.3% 26.1%;
-
-    --sidebar-primary: 240 5.9% 10%;
-
-    --sidebar-primary-foreground: 0 0% 98%;
-
-    --sidebar-accent: 240 4.8% 95.9%;
-
-    --sidebar-accent-foreground: 240 5.9% 10%;
-
-    --sidebar-border: 220 13% 91%;
-
-    --sidebar-ring: 217.2 91.2% 59.8%;
-  }
-
-  .dark {
-    --background: 222.2 84% 4.9%;
-    --foreground: 210 40% 98%;
-
-    --card: 222.2 84% 4.9%;
-    --card-foreground: 210 40% 98%;
-
-    --popover: 222.2 84% 4.9%;
-    --popover-foreground: 210 40% 98%;
-
-    --primary: 210 40% 98%;
-    --primary-foreground: 222.2 47.4% 11.2%;
-
-    --secondary: 217.2 32.6% 17.5%;
-    --secondary-foreground: 210 40% 98%;
-
-    --muted: 217.2 32.6% 17.5%;
-    --muted-foreground: 215 20.2% 65.1%;
-
-    --accent: 217.2 32.6% 17.5%;
-    --accent-foreground: 210 40% 98%;
-
-    --destructive: 0 62.8% 30.6%;
-    --destructive-foreground: 210 40% 98%;
-
-    --border: 217.2 32.6% 17.5%;
-    --input: 217.2 32.6% 17.5%;
-    --ring: 212.7 26.8% 83.9%;
-    --sidebar-background: 240 5.9% 10%;
-    --sidebar-foreground: 240 4.8% 95.9%;
-    --sidebar-primary: 224.3 76.3% 48%;
-    --sidebar-primary-foreground: 0 0% 100%;
-    --sidebar-accent: 240 3.7% 15.9%;
-    --sidebar-accent-foreground: 240 4.8% 95.9%;
-    --sidebar-border: 240 3.7% 15.9%;
-    --sidebar-ring: 217.2 91.2% 59.8%;
-  }
+     :root {
+        /* Core Background & Text */
+        --background: 240 10% 3.9%;
+        --foreground: 280 25% 95%;
+        /* Card & Surface Colors */
+        --card: 240 10% 6%;
+        --card-foreground: 280 20% 90%;
+        --popover: 240 15% 8%;
+        --popover-foreground: 280 20% 90%;
+        /* Primary - Electric Blue with mystical glow */
+        --primary: 220 100% 60%;
+        --primary-foreground: 220 100% 95%;
+        --primary-glow: 220 100% 70%;
+        /* Secondary - Deep Purple for cosmic elements */
+        --secondary: 280 60% 25%;
+        --secondary-foreground: 280 30% 90%;
+        /* Accent - Fiery Orange for highlights */
+        --accent: 25 100% 60%;
+        --accent-foreground: 25 100% 95%;
+        --accent-glow: 25 100% 70%;
+        /* Muted tones */
+        --muted: 240 10% 15%;
+        --muted-foreground: 240 5% 65%;
+        /* Destructive */
+        --destructive: 0 84% 60%;
+        --destructive-foreground: 0 0% 98%;
+        /* Borders & Inputs */
+        --border: 240 10% 20%;
+        --input: 240 10% 15%;
+        --ring: 220 100% 60%;
+        /* Design System Extensions */
+        --cosmic-purple: 270 100% 30%;
+        --cosmic-purple-light: 270 80% 50%;
+        --electric-cyan: 190 100% 50%;
+        --mystic-green: 150 60% 40%;
+        --ember-orange: 25 100% 60%;
+        --shadow-deep: 240 20% 10%;
+        /* Gradients */
+        --gradient-cosmic: linear-gradient(135deg, hsl(var(--cosmic-purple)) 0%, hsl(var(--primary)) 100%);
+        --gradient-fire: linear-gradient(135deg, hsl(var(--accent)) 0%, hsl(var(--ember-orange)) 100%);
+        --gradient-ethereal: linear-gradient(135deg, hsl(var(--primary)) 0%, hsl(var(--electric-cyan)) 50%, hsl(var(--cosmic-purple-light)) 100%);
+        --gradient-card: linear-gradient(135deg, hsl(var(--card)) 0%, hsl(var(--muted)) 100%);
+        /* Shadows & Glows */
+        --shadow-glow: 0 0 40px hsl(var(--primary) / 0.3);
+        --shadow-accent-glow: 0 0 30px hsl(var(--accent) / 0.4);
+        --shadow-cosmic: 0 10px 40px hsl(var(--cosmic-purple) / 0.4);
+        --shadow-elevated: 0 25px 50px hsl(var(--shadow-deep) / 0.5);
+        --radius: 0.75rem;
+        --sidebar-background: 0 0% 98%;
+        --sidebar-foreground: 240 5.3% 26.1%;
+        --sidebar-primary: 240 5.9% 10%;
+        --sidebar-primary-foreground: 0 0% 98%;
+        --sidebar-accent: 240 4.8% 95.9%;
+        --sidebar-accent-foreground: 240 5.9% 10%;
+        --sidebar-border: 220 13% 91%;
+        --sidebar-ring: 217.2 91.2% 59.8%;
+    }
+    .dark {
+        --background: 222.2 84% 4.9%;
+        --foreground: 210 40% 98%;
+        --card: 222.2 84% 4.9%;
+        --card-foreground: 210 40% 98%;
+        --popover: 222.2 84% 4.9%;
+        --popover-foreground: 210 40% 98%;
+        --primary: 210 40% 98%;
+        --primary-foreground: 222.2 47.4% 11.2%;
+        --secondary: 217.2 32.6% 17.5%;
+        --secondary-foreground: 210 40% 98%;
+        --muted: 217.2 32.6% 17.5%;
+        --muted-foreground: 215 20.2% 65.1%;
+        --accent: 217.2 32.6% 17.5%;
+        --accent-foreground: 210 40% 98%;
+        --destructive: 0 62.8% 30.6%;
+        --destructive-foreground: 210 40% 98%;
+        --border: 217.2 32.6% 17.5%;
+        --input: 217.2 32.6% 17.5%;
+        --ring: 212.7 26.8% 83.9%;
+        --sidebar-background: 240 5.9% 10%;
+        --sidebar-foreground: 240 4.8% 95.9%;
+        --sidebar-primary: 224.3 76.3% 48%;
+        --sidebar-primary-foreground: 0 0% 100%;
+        --sidebar-accent: 240 3.7% 15.9%;
+        --sidebar-accent-foreground: 240 4.8% 95.9%;
+        --sidebar-border: 240 3.7% 15.9%;
+        --sidebar-ring: 217.2 91.2% 59.8%;
+    }
 }
 
 @layer base {
-  * {
-    @apply border-border;
-  }
-
-  body {
-    @apply bg-background text-foreground;
-    font-family: 'Inter', system-ui, -apple-system, sans-serif;
-    overflow-x: hidden;
-  }
-
-  /* Glowing text effect for headers */
-  .text-glow {
-    text-shadow: 0 0 20px hsl(var(--primary) / 0.6);
-  }
-
-  .text-accent-glow {
-    text-shadow: 0 0 20px hsl(var(--accent) / 0.6);
-  }
-
-  /* Particle animation background */
-  .particles {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    overflow: hidden;
-    pointer-events: none;
-  }
-
-  .particle {
-    position: absolute;
-    background: hsl(var(--primary) / 0.3);
-    border-radius: 50%;
-    animation: float 6s ease-in-out infinite;
-  }
-
-  .particle:nth-child(odd) {
-    background: hsl(var(--accent) / 0.2);
-    animation-duration: 8s;
-    animation-delay: -2s;
-  }
-
-  .particle:nth-child(3n) {
-    background: hsl(var(--cosmic-purple) / 0.25);
-    animation-duration: 10s;
-    animation-delay: -4s;
-  }
-
-  @keyframes float {
-    0%, 100% {
-      transform: translateY(0px) translateX(0px) scale(1);
-      opacity: 0.3;
+    * {
+        @apply border-border;
     }
-    33% {
-      transform: translateY(-30px) translateX(10px) scale(1.1);
-      opacity: 0.6;
+    body {
+        @apply bg-background text-foreground;
+        font-family: 'Inter', system-ui, -apple-system, sans-serif;
+        overflow-x: hidden;
     }
-    66% {
-      transform: translateY(-15px) translateX(-10px) scale(0.9);
-      opacity: 0.4;
+    /* Glowing text effect for headers */
+    .text-glow {
+        text-shadow: 0 0 20px hsl(var(--primary) / 0.6);
     }
-  }
-
-  /* Hover glow effects */
-  .hover-glow {
-    transition: all 0.3s ease;
-  }
-
-  .hover-glow:hover {
-    box-shadow: var(--shadow-glow);
-    transform: translateY(-2px);
-  }
-
-  .hover-accent-glow:hover {
-    box-shadow: var(--shadow-accent-glow);
-    transform: translateY(-2px) scale(1.02);
-  }
-
-  /* Cosmic background pattern */
-  .cosmic-bg {
-    background: 
-      radial-gradient(circle at 25% 25%, hsl(var(--cosmic-purple) / 0.1) 0%, transparent 50%),
-      radial-gradient(circle at 75% 75%, hsl(var(--primary) / 0.1) 0%, transparent 50%),
-      radial-gradient(circle at 50% 50%, hsl(var(--accent) / 0.05) 0%, transparent 50%);
-  }
+    .text-accent-glow {
+        text-shadow: 0 0 20px hsl(var(--accent) / 0.6);
+    }
+    /* Particle animation background */
+    .particles {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+        pointer-events: none;
+    }
+    .particle {
+        position: absolute;
+        background: hsl(var(--primary) / 0.3);
+        border-radius: 50%;
+        animation: float 6s ease-in-out infinite;
+    }
+    .particle:nth-child(odd) {
+        background: hsl(var(--accent) / 0.2);
+        animation-duration: 8s;
+        animation-delay: -2s;
+    }
+    .particle:nth-child(3n) {
+        background: hsl(var(--cosmic-purple) / 0.25);
+        animation-duration: 10s;
+        animation-delay: -4s;
+    }
+    @keyframes float {
+        0%,
+        100% {
+            transform: translateY(0px) translateX(0px) scale(1);
+            opacity: 0.3;
+        }
+        33% {
+            transform: translateY(-30px) translateX(10px) scale(1.1);
+            opacity: 0.6;
+        }
+        66% {
+            transform: translateY(-15px) translateX(-10px) scale(0.9);
+            opacity: 0.4;
+        }
+    }
+    /* Dragon floating animation - 3 second cycle */
+    @keyframes dragon-float {
+        0% {
+            transform: translate(-50%, -50%) translateY(0px) translateX(0px) scale(1);
+        }
+        25% {
+            transform: translate(-50%, -50%) translateY(-20px) translateX(15px) scale(1.02);
+        }
+        50% {
+            transform: translate(-50%, -50%) translateY(-10px) translateX(30px) scale(0.98);
+        }
+        75% {
+            transform: translate(-50%, -50%) translateY(-25px) translateX(15px) scale(1.01);
+        }
+        100% {
+            transform: translate(-50%, -50%) translateY(0px) translateX(0px) scale(1);
+        }
+    }
+    .animate-dragon-float {
+        animation: dragon-float 3s ease-in-out infinite;
+    }
+    /* Dragon drift animation - Side to side movement */
+    @keyframes dragon-drift {
+        0% {
+            transform: translateX(25%) translateY(0px) rotate(0deg) scale(0.75);
+        }
+        33% {
+            transform: translateX(-10%) translateY(-30px) rotate(-5deg) scale(0.8);
+        }
+        66% {
+            transform: translateX(10%) translateY(-15px) rotate(3deg) scale(0.7);
+        }
+        100% {
+            transform: translateX(25%) translateY(0px) rotate(0deg) scale(0.75);
+        }
+    }
+    .animate-dragon-drift {
+        animation: dragon-drift 5s ease-in-out infinite;
+    }
+    /* Dragon spiral animation - Circular movement */
+    @keyframes dragon-spiral {
+        0% {
+            transform: translateX(-25%) translateY(25%) rotate(0deg) scale(0.5);
+        }
+        25% {
+            transform: translateX(-35%) translateY(15%) rotate(90deg) scale(0.55);
+        }
+        50% {
+            transform: translateX(-25%) translateY(5%) rotate(180deg) scale(0.5);
+        }
+        75% {
+            transform: translateX(-15%) translateY(15%) rotate(270deg) scale(0.45);
+        }
+        100% {
+            transform: translateX(-25%) translateY(25%) rotate(360deg) scale(0.5);
+        }
+    }
+    .animate-dragon-spiral {
+        animation: dragon-spiral 8s linear infinite;
+    }
+    /* Pulsing glow animation for mystical elements */
+    @keyframes pulse-glow {
+        0%,
+        100% {
+            opacity: 0.3;
+            filter: brightness(110%) contrast(110%) saturate(110%) drop-shadow(0 0 20px hsl(var(--primary) / 0.3));
+        }
+        50% {
+            opacity: 0.4;
+            filter: brightness(120%) contrast(120%) saturate(120%) drop-shadow(0 0 30px hsl(var(--primary) / 0.5));
+        }
+    }
+    .animate-pulse-glow {
+        animation: pulse-glow 4s ease-in-out infinite;
+    }
+    /* Hover glow effects */
+    .hover-glow {
+        transition: all 0.3s ease;
+    }
+    .hover-glow:hover {
+        box-shadow: var(--shadow-glow);
+        transform: translateY(-2px);
+    }
+    .hover-accent-glow:hover {
+        box-shadow: var(--shadow-accent-glow);
+        transform: translateY(-2px) scale(1.02);
+    }
+    /* Cosmic background pattern */
+    .cosmic-bg {
+        background: radial-gradient(circle at 25% 25%, hsl(var(--cosmic-purple) / 0.1) 0%, transparent 50%), radial-gradient(circle at 75% 75%, hsl(var(--primary) / 0.1) 0%, transparent 50%), radial-gradient(circle at 50% 50%, hsl(var(--accent) / 0.05) 0%, transparent 50%);
+    }
 }
