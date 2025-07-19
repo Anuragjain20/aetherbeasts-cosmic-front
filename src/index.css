@@ -2,41 +2,71 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
-All colors MUST be HSL.
+/* AetherBeasts Design System - Mystical Web3 NFT Theme
+All colors MUST be HSL for perfect theming.
 */
 
 @layer base {
   :root {
-    --background: 0 0% 100%;
-    --foreground: 222.2 84% 4.9%;
+    /* Core Background & Text */
+    --background: 240 10% 3.9%;
+    --foreground: 280 25% 95%;
 
-    --card: 0 0% 100%;
-    --card-foreground: 222.2 84% 4.9%;
+    /* Card & Surface Colors */
+    --card: 240 10% 6%;
+    --card-foreground: 280 20% 90%;
 
-    --popover: 0 0% 100%;
-    --popover-foreground: 222.2 84% 4.9%;
+    --popover: 240 15% 8%;
+    --popover-foreground: 280 20% 90%;
 
-    --primary: 222.2 47.4% 11.2%;
-    --primary-foreground: 210 40% 98%;
+    /* Primary - Electric Blue with mystical glow */
+    --primary: 220 100% 60%;
+    --primary-foreground: 220 100% 95%;
+    --primary-glow: 220 100% 70%;
 
-    --secondary: 210 40% 96.1%;
-    --secondary-foreground: 222.2 47.4% 11.2%;
+    /* Secondary - Deep Purple for cosmic elements */
+    --secondary: 280 60% 25%;
+    --secondary-foreground: 280 30% 90%;
 
-    --muted: 210 40% 96.1%;
-    --muted-foreground: 215.4 16.3% 46.9%;
+    /* Accent - Fiery Orange for highlights */
+    --accent: 25 100% 60%;
+    --accent-foreground: 25 100% 95%;
+    --accent-glow: 25 100% 70%;
 
-    --accent: 210 40% 96.1%;
-    --accent-foreground: 222.2 47.4% 11.2%;
+    /* Muted tones */
+    --muted: 240 10% 15%;
+    --muted-foreground: 240 5% 65%;
 
-    --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 210 40% 98%;
+    /* Destructive */
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 98%;
 
-    --border: 214.3 31.8% 91.4%;
-    --input: 214.3 31.8% 91.4%;
-    --ring: 222.2 84% 4.9%;
+    /* Borders & Inputs */
+    --border: 240 10% 20%;
+    --input: 240 10% 15%;
+    --ring: 220 100% 60%;
 
-    --radius: 0.5rem;
+    /* Design System Extensions */
+    --cosmic-purple: 270 100% 30%;
+    --cosmic-purple-light: 270 80% 50%;
+    --electric-cyan: 190 100% 50%;
+    --mystic-green: 150 60% 40%;
+    --ember-orange: 25 100% 60%;
+    --shadow-deep: 240 20% 10%;
+
+    /* Gradients */
+    --gradient-cosmic: linear-gradient(135deg, hsl(var(--cosmic-purple)) 0%, hsl(var(--primary)) 100%);
+    --gradient-fire: linear-gradient(135deg, hsl(var(--accent)) 0%, hsl(var(--ember-orange)) 100%);
+    --gradient-ethereal: linear-gradient(135deg, hsl(var(--primary)) 0%, hsl(var(--electric-cyan)) 50%, hsl(var(--cosmic-purple-light)) 100%);
+    --gradient-card: linear-gradient(135deg, hsl(var(--card)) 0%, hsl(var(--muted)) 100%);
+
+    /* Shadows & Glows */
+    --shadow-glow: 0 0 40px hsl(var(--primary) / 0.3);
+    --shadow-accent-glow: 0 0 30px hsl(var(--accent) / 0.4);
+    --shadow-cosmic: 0 10px 40px hsl(var(--cosmic-purple) / 0.4);
+    --shadow-elevated: 0 25px 50px hsl(var(--shadow-deep) / 0.5);
+
+    --radius: 0.75rem;
 
     --sidebar-background: 0 0% 98%;
 
@@ -101,5 +131,82 @@ All colors MUST be HSL.
 
   body {
     @apply bg-background text-foreground;
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+    overflow-x: hidden;
+  }
+
+  /* Glowing text effect for headers */
+  .text-glow {
+    text-shadow: 0 0 20px hsl(var(--primary) / 0.6);
+  }
+
+  .text-accent-glow {
+    text-shadow: 0 0 20px hsl(var(--accent) / 0.6);
+  }
+
+  /* Particle animation background */
+  .particles {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    pointer-events: none;
+  }
+
+  .particle {
+    position: absolute;
+    background: hsl(var(--primary) / 0.3);
+    border-radius: 50%;
+    animation: float 6s ease-in-out infinite;
+  }
+
+  .particle:nth-child(odd) {
+    background: hsl(var(--accent) / 0.2);
+    animation-duration: 8s;
+    animation-delay: -2s;
+  }
+
+  .particle:nth-child(3n) {
+    background: hsl(var(--cosmic-purple) / 0.25);
+    animation-duration: 10s;
+    animation-delay: -4s;
+  }
+
+  @keyframes float {
+    0%, 100% {
+      transform: translateY(0px) translateX(0px) scale(1);
+      opacity: 0.3;
+    }
+    33% {
+      transform: translateY(-30px) translateX(10px) scale(1.1);
+      opacity: 0.6;
+    }
+    66% {
+      transform: translateY(-15px) translateX(-10px) scale(0.9);
+      opacity: 0.4;
+    }
+  }
+
+  /* Hover glow effects */
+  .hover-glow {
+    transition: all 0.3s ease;
+  }
+
+  .hover-glow:hover {
+    box-shadow: var(--shadow-glow);
+    transform: translateY(-2px);
+  }
+
+  .hover-accent-glow:hover {
+    box-shadow: var(--shadow-accent-glow);
+    transform: translateY(-2px) scale(1.02);
+  }
+
+  /* Cosmic background pattern */
+  .cosmic-bg {
+    background: 
+      radial-gradient(circle at 25% 25%, hsl(var(--cosmic-purple) / 0.1) 0%, transparent 50%),
+      radial-gradient(circle at 75% 75%, hsl(var(--primary) / 0.1) 0%, transparent 50%),
+      radial-gradient(circle at 50% 50%, hsl(var(--accent) / 0.05) 0%, transparent 50%);
   }
 }
