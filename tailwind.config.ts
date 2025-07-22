@@ -12,10 +12,31 @@ export default {
 	theme: {
 		container: {
 			center: true,
-			padding: '2rem',
+			padding: {
+				DEFAULT: '1rem',
+				xs: '1rem',
+				sm: '1.5rem',
+				md: '2rem',
+				lg: '2.5rem',
+				xl: '3rem',
+				'2xl': '3.5rem',
+			},
 			screens: {
+				xs: '475px',
+				sm: '640px',
+				md: '768px',
+				lg: '1024px',
+				xl: '1280px',
 				'2xl': '1400px'
 			}
+		},
+		screens: {
+			'xs': '475px',
+			'sm': '640px',
+			'md': '768px',
+			'lg': '1024px',
+			'xl': '1280px',
+			'2xl': '1400px',
 		},
 		extend: {
 			colors: {
@@ -71,6 +92,15 @@ export default {
 					border: 'hsl(var(--sidebar-border))',
 					ring: 'hsl(var(--sidebar-ring))'
 				}
+			},
+			spacing: {
+				'18': '4.5rem',
+				'88': '22rem',
+				'128': '32rem',
+			},
+			fontSize: {
+				'2xs': ['0.625rem', { lineHeight: '0.75rem' }],
+				'3xs': ['0.5rem', { lineHeight: '0.625rem' }],
 			},
 			backgroundImage: {
 				'gradient-cosmic': 'var(--gradient-cosmic)',
@@ -141,6 +171,49 @@ export default {
 					'100%': {
 						backgroundPosition: '200% center'
 					}
+				},
+				'dragon-float': {
+					'0%, 100%': {
+						transform: 'translate(-50%, -50%) translateY(0px) translateX(0px) scale(1)'
+					},
+					'25%': {
+						transform: 'translate(-50%, -50%) translateY(-20px) translateX(15px) scale(1.02)'
+					},
+					'50%': {
+						transform: 'translate(-50%, -50%) translateY(-10px) translateX(30px) scale(0.98)'
+					},
+					'75%': {
+						transform: 'translate(-50%, -50%) translateY(-25px) translateX(15px) scale(1.01)'
+					}
+				},
+				'dragon-drift': {
+					'0%, 100%': {
+						transform: 'translateX(25%) translateY(0px) rotate(0deg) scale(0.75)'
+					},
+					'33%': {
+						transform: 'translateX(-10%) translateY(-30px) rotate(-5deg) scale(0.8)'
+					},
+					'66%': {
+						transform: 'translateX(10%) translateY(-15px) rotate(3deg) scale(0.7)'
+					}
+				},
+				'dragon-breath': {
+					'0%, 100%': {
+						opacity: '0.1',
+						transform: 'scaleY(1) scaleX(1)'
+					},
+					'25%': {
+						opacity: '0.3',
+						transform: 'scaleY(1.1) scaleX(1.05)'
+					},
+					'50%': {
+						opacity: '0.2',
+						transform: 'scaleY(1.2) scaleX(1.1)'
+					},
+					'75%': {
+						opacity: '0.25',
+						transform: 'scaleY(1.1) scaleX(1.05)'
+					}
 				}
 			},
 			animation: {
@@ -149,9 +222,15 @@ export default {
 				'pulse-glow': 'pulse-glow 2s ease-in-out infinite',
 				'float': 'float 6s ease-in-out infinite',
 				'fade-in-up': 'fade-in-up 0.6s ease-out',
-				'shimmer': 'shimmer 2s linear infinite'
+				'shimmer': 'shimmer 2s linear infinite',
+				'dragon-float': 'dragon-float 6s ease-in-out infinite',
+				'dragon-drift': 'dragon-drift 8s ease-in-out infinite',
+				'dragon-breath': 'dragon-breath 3s ease-in-out infinite'
 			}
 		}
 	},
-	plugins: [require("tailwindcss-animate")],
+	plugins: [
+		// @ts-ignore
+		require("tailwindcss-animate")
+	],
 } satisfies Config;
