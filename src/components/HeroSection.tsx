@@ -1,28 +1,56 @@
 import { Button } from "@/components/ui/button";
-import cosmicDragonImage from "@/assets/cosmic-dragon-ethereal.jpg";
+import dragonFireImage from "@/assets/dragon-fire-hero.jpg";
 
 const HeroSection = () => {
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden cosmic-bg pt-16">
-      {/* Ethereal Cosmic Dragon Background */}
+      {/* Fire Dragon Background - Enhanced animations */}
       <div className="absolute inset-0 z-0">
-        {/* Main cosmic dragon - perfectly integrated */}
+        {/* Main fire-breathing dragon - better positioning */}
         <div className="absolute inset-0 overflow-hidden">
           <img 
-            src={cosmicDragonImage} 
-            alt="Ethereal cosmic dragon in nebula"
-            className="absolute inset-0 w-full h-full object-cover object-center
-                       animate-pulse-glow opacity-30 
-                       filter brightness-110 contrast-110"
+            src={dragonFireImage} 
+            alt="Fire-breathing dragon with intense flames"
+            className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 
+                       w-[140%] h-[140%] md:w-[110%] md:h-[110%] 
+                       object-contain object-center
+                       animate-dragon-float animate-pulse-glow 
+                       opacity-40 md:opacity-30"
           />
           
-          {/* Subtle cosmic glow overlay */}
-          <div className="absolute inset-0 bg-gradient-to-r from-primary/5 via-accent/3 to-primary/5 animate-pulse-glow"></div>
+          {/* Animated flame effects from dragon's mouth */}
+          <div className="absolute top-[45%] left-[60%] md:top-[40%] md:left-[55%] transform -translate-x-1/2 -translate-y-1/2">
+            {/* Main flame burst */}
+            <div className="w-32 h-16 md:w-48 md:h-24 bg-gradient-to-r from-orange-500/30 via-red-500/40 to-yellow-400/30 
+                           rounded-full blur-sm animate-dragon-breath origin-left scale-x-150"></div>
+            
+            {/* Secondary flame wisps */}
+            <div className="absolute -top-2 left-8 w-16 h-8 md:w-24 md:h-12 bg-gradient-to-r from-red-400/20 via-orange-400/30 to-yellow-300/20 
+                           rounded-full blur-md animate-dragon-breath origin-left" style={{ animationDelay: '0.5s' }}></div>
+            
+            {/* Flame particles */}
+            <div className="absolute top-1 left-12 w-8 h-4 md:w-12 md:h-6 bg-gradient-to-r from-yellow-400/40 to-orange-500/30 
+                           rounded-full blur-sm animate-dragon-breath origin-left" style={{ animationDelay: '1s' }}></div>
+          </div>
+          
+          {/* Fire glow ambient effects */}
+          <div className="absolute inset-0 bg-gradient-to-r from-orange-500/5 via-red-500/3 to-yellow-500/5 animate-pulse-glow"></div>
+          <div className="absolute inset-0 bg-gradient-to-t from-red-600/10 via-transparent to-orange-400/5 animate-dragon-breath"></div>
+          
+          {/* Additional dragon layers for depth - hidden on mobile for performance */}
+          <img 
+            src={dragonFireImage} 
+            alt="Secondary fire dragon"
+            className="hidden lg:block absolute top-0 right-0 transform translate-x-1/4 -translate-y-1/4 
+                       w-2/3 h-2/3 object-contain 
+                       animate-dragon-drift opacity-8 scale-75 
+                       filter blur-sm"
+          />
         </div>
         
-        {/* Professional gradient overlays for text readability */}
-        <div className="absolute inset-0 bg-gradient-to-t from-background/80 via-background/40 to-background/60"></div>
-        <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-background/70"></div>
+        {/* Enhanced gradient overlay for text readability */}
+        <div className="absolute inset-0 bg-gradient-to-t from-background/70 via-background/20 to-background/40"></div>
+        <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-background/50"></div>
       </div>
 
       {/* Animated particles background */}
