@@ -176,42 +176,6 @@ const HowItWorksSection = () => {
               </div>
             </div>
           </div>
-
-          {/* Call to Action */}
-          <div className="text-center space-y-6 sm:space-y-8 p-6 sm:p-8 lg:p-12 rounded-2xl 
-                         bg-gradient-card border border-border/50 hover:border-primary/50 
-                         transition-all duration-300 hover:shadow-glow">
-            <h3 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-glow" 
-                style={{ fontFamily: 'Orbitron, monospace' }}>
-              Ready to <span className="text-accent">Begin</span>?
-            </h3>
-            <p className="text-base sm:text-lg text-muted-foreground max-w-2xl mx-auto leading-relaxed px-2">
-              Join thousands of trainers already exploring the Aetherial Realm. 
-              Your legendary adventure starts here.
-            </p>
-            
-            <div className="flex flex-col sm:flex-row gap-4 sm:gap-6 justify-center max-w-lg mx-auto px-2">
-              <Button 
-                size="lg"
-                className="bg-gradient-ethereal hover:shadow-glow transition-all duration-300 
-                           hover:scale-105 font-semibold text-base sm:text-lg 
-                           px-6 sm:px-8 lg:px-10 py-4 sm:py-5 lg:py-6 rounded-xl 
-                           w-full sm:w-auto min-w-[180px]"
-              >
-                Connect Wallet
-              </Button>
-              <Button 
-                size="lg"
-                variant="outline"
-                className="border-2 border-primary/50 text-primary hover:bg-primary/10 
-                           hover:border-primary/80 transition-all duration-300 
-                           font-semibold text-base sm:text-lg px-6 sm:px-8 lg:px-10 
-                           py-4 sm:py-5 lg:py-6 rounded-xl w-full sm:w-auto min-w-[180px]"
-              >
-                View FAQ
-              </Button>
-            </div>
-          </div>
         </div>
       </div>
 

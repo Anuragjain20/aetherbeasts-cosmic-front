@@ -4,7 +4,7 @@ import { Card, CardContent } from "@/components/ui/card";
 
 const UpcomingDropSection = () => {
   const [timeLeft, setTimeLeft] = useState({
-    days: 7,
+    days: 10,
     hours: 12,
     minutes: 30,
     seconds: 0
@@ -95,22 +95,22 @@ const UpcomingDropSection = () => {
               style={{ fontFamily: 'Orbitron, monospace' }}>
             Upcoming <span className="text-accent">Drop</span>
           </h2>
-          <p className="text-lg sm:text-xl lg:text-2xl text-muted-foreground max-w-4xl mx-auto leading-relaxed px-2">
-            The Genesis Collection awakens soon. Prepare for legendary power.
+          <p className="text-lg sm:text-xl lg:text-1xl text-muted-foreground max-w-4xl mx-auto leading-relaxed px-2">
+            The Genesis Collection awakens soon — don’t miss the upcoming free drop from the most exciting NFT project of the year.
           </p>
         </div>
 
         {/* Countdown Timer */}
         <div className="mb-12 sm:mb-16 lg:mb-20">
-          <div className="text-center mb-8 sm:mb-12">
+          {/* <div className="text-center mb-8 sm:mb-12">
             <h3 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-glow mb-3 sm:mb-4" 
                 style={{ fontFamily: 'Orbitron, monospace' }}>
-              Launch Countdown
+              Drop Countdown
             </h3>
             <p className="text-base sm:text-lg text-muted-foreground">
-              Don't miss the most anticipated NFT drop of the year
+              Don't miss the upcoming free drop from the most exciting NFT project of the year.
             </p>
-          </div>
+          </div> */}
 
           {/* Responsive Countdown Display */}
           <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 sm:gap-4 lg:gap-6 max-w-4xl mx-auto">
@@ -140,7 +140,7 @@ const UpcomingDropSection = () => {
               Mystery <span className="text-accent">Reveals</span>
             </h3>
             <p className="text-base sm:text-lg text-muted-foreground max-w-2xl mx-auto px-2">
-              Four legendary elements will be revealed. Each holds unique powers beyond imagination.
+              Four legendary elements await discovery, each holding powers beyond imagination.
             </p>
           </div>
 

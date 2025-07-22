@@ -20,7 +20,7 @@ const GallerySection = () => {
   useEffect(() => {
     const checkMobile = () => setIsMobile(window.innerWidth < 768);
     checkMobile();
-    
+
     window.addEventListener('resize', checkMobile);
     return () => window.removeEventListener('resize', checkMobile);
   }, []);
@@ -38,7 +38,7 @@ const GallerySection = () => {
     },
     {
       id: 2,
-      name: "Frost Warden", 
+      name: "Frost Warden",
       element: "Ice",
       rarity: "Epic",
       image: beastIce,
@@ -49,7 +49,7 @@ const GallerySection = () => {
     {
       id: 3,
       name: "Verdant Guardian",
-      element: "Nature", 
+      element: "Nature",
       rarity: "Rare",
       image: beastNature,
       rarityColor: "bg-cosmic-green",
@@ -60,7 +60,7 @@ const GallerySection = () => {
       id: 4,
       name: "Shadow Wraith",
       element: "Shadow",
-      rarity: "Mythic", 
+      rarity: "Mythic",
       image: beastShadow,
       rarityColor: "bg-cosmic-purple",
       power: "12,000",
@@ -85,8 +85,8 @@ const GallerySection = () => {
       <div className="container mx-auto max-w-7xl">
         {/* Section header */}
         <div className="text-center mb-12 sm:mb-16 lg:mb-20 space-y-4 sm:space-y-6">
-          <h2 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-glow leading-tight" 
-              style={{ fontFamily: 'Orbitron, monospace' }}>
+          <h2 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-glow leading-tight"
+            style={{ fontFamily: 'Orbitron, monospace' }}>
             Beast <span className="text-accent">Gallery</span>
           </h2>
           <p className="text-lg sm:text-xl lg:text-2xl text-muted-foreground max-w-4xl mx-auto leading-relaxed px-2">
@@ -96,13 +96,13 @@ const GallerySection = () => {
 
         {/* Gallery Carousel - Mobile Optimized */}
         <div className="mb-12 sm:mb-16 lg:mb-20">
-          <Carousel className="w-full max-w-full mx-auto" 
-                   opts={{
-                     align: "start",
-                     loop: true,
-                     skipSnaps: false,
-                     dragFree: isMobile,
-                   }}>
+          <Carousel className="w-full max-w-full mx-auto"
+            opts={{
+              align: "start",
+              loop: true,
+              skipSnaps: false,
+              dragFree: isMobile,
+            }}>
             <CarouselContent className="-ml-2 sm:-ml-4">
               {beasts.map((beast, index) => (
                 <CarouselItem key={beast.id} className="pl-2 sm:pl-4 basis-full sm:basis-1/2 lg:basis-1/3 xl:basis-1/4">
@@ -112,23 +112,23 @@ const GallerySection = () => {
                                  will-change-transform h-full">
                     {/* Beast Image */}
                     <div className="relative aspect-[3/4] overflow-hidden">
-                      <img 
+                      <img
                         src={beast.image}
                         alt={beast.name}
                         className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700
                                   will-change-transform"
                         loading={index < 3 ? "eager" : "lazy"}
                       />
-                      
+
                       {/* Gradient overlay */}
                       <div className="absolute inset-0 bg-gradient-to-t from-background/90 via-background/20 to-transparent"></div>
-                      
+
                       {/* Rarity badge */}
                       <div className="absolute top-3 sm:top-4 right-3 sm:right-4">
                         <Badge className={`${beast.rarityColor} text-white font-bold text-xs sm:text-sm 
                                           px-2 sm:px-3 py-1 sm:py-1.5 rounded-full shadow-lg`}>
-                        {beast.rarity}
-                      </Badge>
+                          {beast.rarity}
+                        </Badge>
                       </div>
 
                       {/* Power indicator */}
@@ -155,8 +155,8 @@ const GallerySection = () => {
                         <span className="text-xs sm:text-sm font-medium text-accent uppercase tracking-wider">
                           {beast.element} Element
                         </span>
-                        <Button 
-                          size="sm" 
+                        <Button
+                          size="sm"
                           variant="outline"
                           className="text-xs sm:text-sm border-primary/50 text-primary hover:bg-primary/10 
                                    hover:border-primary/80 transition-all duration-300 
@@ -170,21 +170,24 @@ const GallerySection = () => {
                 </CarouselItem>
               ))}
             </CarouselContent>
-            
+
             {/* Carousel Controls */}
             <div className="flex justify-center items-center gap-4 mt-6 sm:mt-8">
-              <CarouselPrevious className="relative transform-none translate-y-0 left-auto right-auto
-                                          bg-background/80 border-primary/50 hover:bg-primary/10 
-                                          hover:border-primary/80 w-10 h-10 sm:w-12 sm:h-12" />
-              <CarouselNext className="relative transform-none translate-y-0 left-auto right-auto
-                                     bg-background/80 border-primary/50 hover:bg-primary/10 
-                                     hover:border-primary/80 w-10 h-10 sm:w-12 sm:h-12" />
+
+              <CarouselPrevious className="absolute top-1/2 -translate-y-1/2 -left-5 sm:-left-6 z-10 
+                                    bg-background/80 border border-primary/50 
+                                    hover:bg-primary/10 hover:border-primary/80 
+                                    w-10 h-10 sm:w-12 sm:h-12 rounded-full" />
+              <CarouselNext className="absolute top-1/2 -translate-y-1/2 -right-5 sm:-right-6 z-10 
+                                bg-background/80 border border-primary/50 
+                                hover:bg-primary/10 hover:border-primary/80 
+                                w-10 h-10 sm:w-12 sm:h-12 rounded-full" />
             </div>
           </Carousel>
         </div>
 
         {/* Featured Grid - Desktop Enhancement */}
-        <div className="hidden lg:block">
+        {/* <div className="hidden lg:block">
           <div className="text-center mb-12 space-y-4">
             <h3 className="text-3xl xl:text-4xl font-bold text-glow" style={{ fontFamily: 'Orbitron, monospace' }}>
               Featured <span className="text-accent">Legends</span>
@@ -233,19 +236,19 @@ const GallerySection = () => {
               </div>
             ))}
           </div>
-        </div>
+        </div> */}
 
         {/* Call to Action */}
         <div className="text-center mt-12 sm:mt-16 lg:mt-20 space-y-6 sm:space-y-8">
-          <h3 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-glow" 
-              style={{ fontFamily: 'Orbitron, monospace' }}>
+          <h3 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-glow"
+            style={{ fontFamily: 'Orbitron, monospace' }}>
             Ready to <span className="text-accent">Collect</span>?
           </h3>
           <p className="text-base sm:text-lg text-muted-foreground max-w-2xl mx-auto px-2">
             Join thousands of collectors in the mystical world of AetherBeasts
           </p>
           <div className="flex flex-col xs:flex-row gap-4 justify-center max-w-md mx-auto px-2">
-            <Button 
+            <Button
               size="lg"
               className="bg-gradient-ethereal hover:shadow-glow transition-all duration-300 
                          hover:scale-105 font-semibold text-base sm:text-lg 
@@ -253,16 +256,16 @@ const GallerySection = () => {
             >
               Browse Collection
             </Button>
-          <Button 
-            size="lg"
-            variant="outline"
+            <Button
+              size="lg"
+              variant="outline"
               className="border-2 border-primary/50 text-primary hover:bg-primary/10 
                          hover:border-primary/80 transition-all duration-300 
                          font-semibold text-base sm:text-lg px-6 sm:px-8 py-3 sm:py-4 
                          rounded-xl w-full xs:w-auto"
-          >
+            >
               Learn More
-          </Button>
+            </Button>
           </div>
         </div>
       </div>

@@ -17,7 +17,6 @@ const CommunitySection = () => {
     {
       name: "Discord",
       icon: "🎮",
-      members: "29.5K",
       description: "Join our vibrant community for daily challenges and exclusive drops",
       gradient: "bg-gradient-to-br from-indigo-500/20 to-purple-600/20",
       hoverColor: "hover:border-indigo-500/50"
@@ -25,7 +24,6 @@ const CommunitySection = () => {
     {
       name: "Twitter",
       icon: "🐦",
-      members: "85.2K",
       description: "Follow for real-time updates, sneak peeks, and community highlights",
       gradient: "bg-gradient-to-br from-blue-400/20 to-blue-600/20",
       hoverColor: "hover:border-blue-500/50"
@@ -33,16 +31,14 @@ const CommunitySection = () => {
     {
       name: "Instagram",
       icon: "📸",
-      members: "42.8K",
-      description: "Discover stunning artwork and behind-the-scenes content",
+      description: "Discover stunning artwork and behind-the-scenes content from our community",
       gradient: "bg-gradient-to-br from-pink-500/20 to-purple-500/20",
       hoverColor: "hover:border-pink-500/50"
     },
     {
-      name: "YouTube",
+      name: "Telegram",
       icon: "📺",
-      members: "18.7K",
-      description: "Watch tutorials, lore videos, and community showcases",
+      description: "Connect with us for announcements, discussions, and community events",
       gradient: "bg-gradient-to-br from-red-500/20 to-red-600/20",
       hoverColor: "hover:border-red-500/50"
     }
@@ -97,16 +93,6 @@ const CommunitySection = () => {
                       </h3>
                     </div>
 
-                    {/* Members count */}
-                    <div className="space-y-2">
-                      <div className="text-2xl sm:text-3xl lg:text-4xl font-black text-primary">
-                        {platform.members}
-                      </div>
-                      <div className="text-xs sm:text-sm text-muted-foreground uppercase tracking-wider font-semibold">
-                        Members
-                      </div>
-                    </div>
-
                     {/* Description */}
                     <p className="text-sm sm:text-base text-muted-foreground leading-relaxed px-2">
                       {platform.description}
@@ -136,10 +122,10 @@ const CommunitySection = () => {
           <div className="text-center mb-8 sm:mb-12">
             <h3 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-glow mb-3 sm:mb-4" 
                 style={{ fontFamily: 'Orbitron, monospace' }}>
-              Community <span className="text-accent">Highlights</span>
+              Upcomming <span className="text-accent">Highlights</span>
             </h3>
             <p className="text-base sm:text-lg text-muted-foreground max-w-2xl mx-auto px-2">
-              See what makes our community the strongest in the metaverse
+              Discover what sets our emerging community apart in the metaverse.
             </p>
           </div>
 
@@ -222,7 +208,7 @@ const CommunitySection = () => {
             Ready to <span className="text-accent">Connect</span>?
           </h3>
           <p className="text-base sm:text-lg text-muted-foreground max-w-2xl mx-auto px-2 leading-relaxed">
-            Join thousands of adventurers in the most supportive and exciting NFT community in the metaverse
+            Be part of a growing community of adventurers exploring the most exciting NFT experiences in the metaverse.
           </p>
           
           <div className="flex flex-col xs:flex-row gap-4 sm:gap-6 justify-center max-w-lg mx-auto px-2">

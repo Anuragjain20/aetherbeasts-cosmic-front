@@ -8,7 +8,7 @@ const AboutSection = () => {
   useEffect(() => {
     const checkMobile = () => setIsMobile(window.innerWidth < 768);
     checkMobile();
-    
+
     window.addEventListener('resize', checkMobile);
     return () => window.removeEventListener('resize', checkMobile);
   }, []);
@@ -39,61 +39,35 @@ const AboutSection = () => {
   return (
     <section id="about" className="py-16 sm:py-20 lg:py-24 px-4 sm:px-6 lg:px-8 relative overflow-hidden">
       <div className="container mx-auto max-w-7xl">
-        <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 xl:gap-20 items-center">
-          {/* Text content */}
+        <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 xl:gap-20 items-start">
+          {/* Left: Heading and Lore Text */}
           <div className="space-y-6 sm:space-y-8 lg:space-y-10 order-2 lg:order-1">
             <div className="space-y-4 sm:space-y-6">
-              <h2 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-glow leading-tight" 
-                  style={{ fontFamily: 'Orbitron, monospace' }}>
+              <h2 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-glow leading-tight"
+                style={{ fontFamily: 'Orbitron, monospace' }}>
                 The Myth of the <span className="text-accent">Aetherial</span> Dawn
               </h2>
               <div className="space-y-4 sm:space-y-6 text-base sm:text-lg lg:text-xl text-muted-foreground leading-relaxed">
                 <p>
-                  In the beginning, when the cosmos was but a whisper of stardust, the Aetherial Realm was born 
-                  from the collision of five primal elements: <span className="text-accent font-semibold">Fire</span>, <span className="text-primary font-semibold">Storm</span>, <span className="text-cosmic-cyan font-semibold">Moon</span>, <span className="text-cosmic-green font-semibold">Spirit</span>, and <span className="text-cosmic-purple font-semibold">Stone</span>. These forces 
-                  swirled in chaos, untamed and boundless, until the First Aetherion, a celestial dragon of radiant 
+                  In the beginning, when the cosmos was but a whisper of stardust, the Aetherial Realm was born
+                  from the collision of five primal elements: <span className="text-accent font-semibold">Fire</span>, <span className="text-primary font-semibold">Storm</span>, <span className="text-cosmic-cyan font-semibold">Moon</span>, <span className="text-cosmic-green font-semibold">Spirit</span>, and <span className="text-cosmic-purple font-semibold">Stone</span>. These forces
+                  swirled in chaos, untamed and boundless, until the First Aetherion, a celestial dragon of radiant
                   light, descended from the stars.
                 </p>
                 <p>
-                  With a single roar, it wove the elements into harmony, birthing the floating islands of the Realm—each 
-                  a crucible of life, glowing with the pulse of creation. From the embers of volcanoes came <span className="text-accent font-semibold">Spryke</span>, 
-                  its fiery tail crackling with storm-born lightning. In the moonlit mists emerged <span className="text-cosmic-cyan font-semibold">Lunethra</span>, its wings 
+                  With a single roar, it wove the elements into harmony, birthing the floating islands of the Realm—each
+                  a crucible of life, glowing with the pulse of creation. From the embers of volcanoes came <span className="text-accent font-semibold">Spryke</span>,
+                  its fiery tail crackling with storm-born lightning. In the moonlit mists emerged <span className="text-cosmic-cyan font-semibold">Lunethra</span>, its wings
                   shimmering with crescent patterns, guiding lost souls with serene wisdom.
                 </p>
                 <p>
-                  Now, these mystical beings await their destined companions—brave souls who will unlock their ancient powers 
+                  Now, these mystical beings await their destined companions—brave souls who will unlock their ancient powers
                   and forge legendary bonds that transcend the boundaries between realms.
                 </p>
               </div>
             </div>
 
-            {/* Features Grid */}
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6 lg:gap-8">
-              {features.map((feature, index) => (
-                <div key={feature.title} 
-                     className="group p-4 sm:p-6 rounded-xl bg-gradient-card border border-border/50 
-                               hover:border-primary/50 transition-all duration-300 hover:shadow-glow 
-                               hover:transform hover:scale-[1.02] will-change-transform"
-                     style={{ animationDelay: `${index * 0.1}s` }}>
-                  <div className="flex items-start space-x-3 sm:space-x-4">
-                    <div className="text-2xl sm:text-3xl lg:text-4xl group-hover:scale-110 transition-transform duration-300 flex-shrink-0">
-                      {feature.icon}
-                    </div>
-                    <div className="space-y-2">
-                      <h3 className="text-lg sm:text-xl lg:text-2xl font-bold text-foreground group-hover:text-primary 
-                                    transition-colors duration-300">
-                        {feature.title}
-                      </h3>
-                      <p className="text-sm sm:text-base text-muted-foreground leading-relaxed">
-                        {feature.description}
-                      </p>
-                    </div>
-                  </div>
-                </div>
-              ))}
-            </div>
-
-            {/* Call to Action Buttons */}
+            {/* CTA Buttons */}
             <div className="flex flex-col xs:flex-row gap-4 sm:gap-6 pt-4 sm:pt-6">
               <Button 
                 size="lg"
@@ -117,28 +91,24 @@ const AboutSection = () => {
             </div>
           </div>
 
-          {/* Image section */}
-          <div className="relative order-1 lg:order-2">
+          {/* Right: Image + Features below it */}
+          <div className="order-1 lg:order-2 space-y-8">
+            {/* Beast Image */}
             <div className="relative group">
-              {/* Main image */}
               <div className="relative aspect-[4/5] sm:aspect-[3/4] lg:aspect-[4/5] overflow-hidden rounded-2xl 
-                             border border-border/50 group-hover:border-primary/50 transition-all duration-500 
-                             hover:shadow-glow will-change-transform">
+                     border border-border/50 group-hover:border-primary/50 transition-all duration-500 
+                     hover:shadow-glow will-change-transform">
                 <img
                   src={beastNatureImage}
                   alt="Verdant Guardian - Nature AetherBeast in mystical forest"
                   className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700 will-change-transform"
                   loading="eager"
                 />
-                
-                {/* Gradient overlay */}
                 <div className="absolute inset-0 bg-gradient-to-t from-background/70 via-background/10 to-transparent"></div>
-                
-                {/* Floating info card */}
                 <div className="absolute bottom-4 sm:bottom-6 left-4 sm:left-6 right-4 sm:right-6 
-                               bg-background/90 backdrop-blur-sm border border-border/50 rounded-xl 
-                               p-4 sm:p-6 space-y-2 sm:space-y-3 group-hover:bg-background/95 
-                               transition-all duration-300">
+                       bg-background/90 backdrop-blur-sm border border-border/50 rounded-xl 
+                       p-4 sm:p-6 space-y-2 sm:space-y-3 group-hover:bg-background/95 
+                       transition-all duration-300">
                   <h3 className="text-lg sm:text-xl lg:text-2xl font-bold text-foreground">
                     Verdant Guardian
                   </h3>
@@ -154,60 +124,47 @@ const AboutSection = () => {
                     </span>
                   </div>
                 </div>
-
-                {/* Hover glow effect */}
                 <div className="absolute inset-0 bg-primary/10 opacity-0 group-hover:opacity-100 
-                               transition-opacity duration-300 pointer-events-none"></div>
+                       transition-opacity duration-300 pointer-events-none"></div>
               </div>
 
               {/* Decorative floating elements */}
               {!isMobile && (
                 <>
-                  <div className="absolute -top-4 -right-4 w-24 h-24 bg-cosmic-green/20 rounded-full blur-xl 
-                                 animate-float" style={{ animationDelay: '0s' }}></div>
-                  <div className="absolute -bottom-8 -left-8 w-32 h-32 bg-primary/15 rounded-full blur-2xl 
-                                 animate-float" style={{ animationDelay: '2s' }}></div>
-                  <div className="absolute top-1/3 -right-8 w-16 h-16 bg-accent/20 rounded-full blur-lg 
-                                 animate-float" style={{ animationDelay: '4s' }}></div>
+                  <div className="absolute -top-4 -right-4 w-24 h-24 bg-cosmic-green/20 rounded-full blur-xl animate-float" />
+                  <div className="absolute -bottom-8 -left-8 w-32 h-32 bg-primary/15 rounded-full blur-2xl animate-float" />
+                  <div className="absolute top-1/3 -right-8 w-16 h-16 bg-accent/20 rounded-full blur-lg animate-float" />
                 </>
               )}
             </div>
           </div>
         </div>
 
-        {/* Additional lore section */}
-        <div className="mt-16 sm:mt-20 lg:mt-24 text-center max-w-4xl mx-auto space-y-6 sm:space-y-8">
-          <h3 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-glow" 
-              style={{ fontFamily: 'Orbitron, monospace' }}>
-            The Five <span className="text-accent">Elements</span>
-          </h3>
-          
-          <div className="grid grid-cols-1 xs:grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-4 sm:gap-6 lg:gap-8 mt-8 sm:mt-12">
-            {[
-              { name: "Fire", icon: "🔥", color: "text-accent", description: "Passion & Destruction" },
-              { name: "Storm", icon: "⚡", color: "text-primary", description: "Power & Fury" },
-              { name: "Moon", icon: "🌙", color: "text-cosmic-cyan", description: "Wisdom & Mystery" },
-              { name: "Spirit", icon: "✨", color: "text-cosmic-green", description: "Life & Growth" },
-              { name: "Stone", icon: "🗿", color: "text-cosmic-purple", description: "Strength & Endurance" }
-            ].map((element, index) => (
-              <div key={element.name} 
-                   className="group text-center space-y-3 sm:space-y-4 p-4 sm:p-6 rounded-xl 
-                             bg-gradient-card border border-border/50 hover:border-primary/50 
-                             transition-all duration-300 hover:shadow-glow hover:transform hover:scale-[1.02]"
-                   style={{ animationDelay: `${index * 0.1}s` }}>
-                <div className="text-3xl sm:text-4xl lg:text-5xl group-hover:scale-110 transition-transform duration-300">
-                  {element.icon}
+
+        {/* Features Grid — now below image */}
+        <div className="grid grid-cols-1 xs:grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4 sm:gap-6 lg:gap-8 mt-8 sm:mt-12">
+              {features.map((feature, index) => (
+                <div key={feature.title}
+                  className="group p-4 sm:p-6 rounded-xl bg-gradient-card border border-border/50 
+                       hover:border-primary/50 transition-all duration-300 hover:shadow-glow 
+                       hover:transform hover:scale-[1.02] will-change-transform"
+                  style={{ animationDelay: `${index * 0.1}s` }}>
+                  <div className="flex items-start space-x-3 sm:space-x-4">
+                    <div className="text-2xl sm:text-3xl lg:text-4xl group-hover:scale-110 transition-transform duration-300 flex-shrink-0">
+                      {feature.icon}
+                    </div>
+                    <div className="space-y-2">
+                      <h3 className="text-lg sm:text-xl lg:text-2xl font-bold text-foreground group-hover:text-primary transition-colors duration-300">
+                        {feature.title}
+                      </h3>
+                      <p className="text-sm sm:text-base text-muted-foreground leading-relaxed">
+                        {feature.description}
+                      </p>
+                    </div>
+                  </div>
                 </div>
-                <h4 className={`text-lg sm:text-xl font-bold ${element.color} group-hover:text-primary transition-colors duration-300`}>
-                  {element.name}
-                </h4>
-                <p className="text-xs sm:text-sm text-muted-foreground">
-                  {element.description}
-                </p>
-              </div>
-            ))}
-          </div>
-        </div>
+              ))}
+            </div>
       </div>
 
       {/* Background effects */}
@@ -215,7 +172,7 @@ const AboutSection = () => {
                      transform -translate-x-1/2"></div>
       <div className="absolute bottom-1/4 right-0 w-64 sm:w-96 h-64 sm:h-96 bg-primary/5 rounded-full blur-3xl 
                      transform translate-x-1/2"></div>
-      
+
       {/* Floating particles */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
         {Array.from({ length: isMobile ? 6 : 12 }).map((_, i) => (

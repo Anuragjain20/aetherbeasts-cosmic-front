@@ -38,15 +38,6 @@ const Footer = () => {
         { name: "Bug Reports", href: "#", icon: "🐛" },
         { name: "Feature Requests", href: "#", icon: "💡" }
       ]
-    },
-    {
-      title: "Legal",
-      links: [
-        { name: "Privacy Policy", href: "#", icon: "🔒" },
-        { name: "Terms of Service", href: "#", icon: "📋" },
-        { name: "Cookie Policy", href: "#", icon: "🍪" },
-        { name: "DMCA", href: "#", icon: "⚖️" }
-      ]
     }
   ];
 
@@ -127,7 +118,7 @@ const Footer = () => {
         </div>
 
         {/* Stats Section */}
-        <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 sm:gap-6 lg:gap-8 mb-8 sm:mb-12 lg:mb-16 
+        {/* <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 sm:gap-6 lg:gap-8 mb-8 sm:mb-12 lg:mb-16 
                        p-6 sm:p-8 rounded-2xl bg-gradient-card border border-border/50">
           {[
             { label: "Total Supply", value: "10,000", icon: "🔢" },
@@ -147,7 +138,7 @@ const Footer = () => {
               </div>
             </div>
           ))}
-        </div>
+        </div> */}
 
         {/* Bottom Section */}
         <div className="border-t border-border/50 pt-6 sm:pt-8 lg:pt-10">
