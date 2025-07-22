@@ -1,65 +1,28 @@
 import { Button } from "@/components/ui/button";
-import dragonFireImage from "@/assets/dragon-fire-dynamic.jpg";
+import cosmicDragonImage from "@/assets/cosmic-dragon-ethereal.jpg";
 
 const HeroSection = () => {
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden cosmic-bg pt-16">
-      {/* Fire Dragon Background - Enhanced animations */}
+      {/* Ethereal Cosmic Dragon Background */}
       <div className="absolute inset-0 z-0">
-        {/* Main fire-breathing dragon - better positioning */}
+        {/* Main cosmic dragon - perfectly integrated */}
         <div className="absolute inset-0 overflow-hidden">
           <img 
-            src={dragonFireImage} 
-            alt="Fire-breathing dragon with intense flames"
-            className="absolute top-1/2 left-1/2 transform 
-                       w-[140%] h-[140%] md:w-[110%] md:h-[110%] 
-                       object-contain object-center
-                       animate-dragon-float-enhanced animate-pulse-glow 
-                       opacity-50 md:opacity-40"
+            src={cosmicDragonImage} 
+            alt="Ethereal cosmic dragon in nebula"
+            className="absolute inset-0 w-full h-full object-cover object-center
+                       animate-pulse-glow opacity-30 
+                       filter brightness-110 contrast-110"
           />
           
-          {/* Animated flame effects from dragon's mouth - Multiple layers for realism */}
-          <div className="absolute top-[35%] left-[65%] md:top-[30%] md:left-[60%] transform -translate-x-1/2 -translate-y-1/2">
-            {/* Main flame burst - Large */}
-            <div className="w-40 h-20 md:w-60 md:h-32 bg-gradient-to-r from-red-500/50 via-orange-500/60 to-yellow-400/50 
-                           rounded-full blur-sm animate-dragon-breath origin-left scale-x-200"></div>
-            
-            {/* Secondary flame - Medium */}
-            <div className="absolute -top-4 left-10 w-24 h-12 md:w-36 md:h-18 bg-gradient-to-r from-orange-600/40 via-red-500/50 to-yellow-300/40 
-                           rounded-full blur-md animate-dragon-breath origin-left scale-x-150" style={{ animationDelay: '0.3s', animationDuration: '1.8s' }}></div>
-            
-            {/* Flame sparks - Small */}
-            <div className="absolute top-2 left-16 w-12 h-6 md:w-18 md:h-9 bg-gradient-to-r from-yellow-500/60 to-orange-600/50 
-                           rounded-full blur-sm animate-dragon-breath origin-left scale-x-100" style={{ animationDelay: '0.6s', animationDuration: '1.5s' }}></div>
-                           
-            {/* Additional flame wisps */}
-            <div className="absolute -top-6 left-6 w-16 h-8 md:w-24 md:h-12 bg-gradient-to-r from-red-600/30 via-orange-400/40 to-yellow-200/30 
-                           rounded-full blur-lg animate-dragon-breath origin-left scale-x-120" style={{ animationDelay: '0.9s', animationDuration: '2.2s' }}></div>
-            
-            {/* Fire particles floating */}
-            <div className="absolute top-4 left-20 w-6 h-3 md:w-9 md:h-5 bg-gradient-to-r from-yellow-400/70 to-red-500/50 
-                           rounded-full blur-sm animate-dragon-breath origin-left" style={{ animationDelay: '1.2s', animationDuration: '1.3s' }}></div>
-          </div>
-          
-          {/* Enhanced fire glow ambient effects */}
-          <div className="absolute inset-0 bg-gradient-to-r from-orange-500/8 via-red-500/6 to-yellow-500/8 animate-pulse-glow"></div>
-          <div className="absolute inset-0 bg-gradient-to-t from-red-600/15 via-orange-400/8 to-yellow-400/6 animate-dragon-breath" style={{ animationDuration: '3s' }}></div>
-          <div className="absolute inset-0 bg-gradient-to-br from-transparent via-red-500/5 to-orange-500/10 animate-pulse-glow" style={{ animationDelay: '1s' }}></div>
-          
-          {/* Additional dragon layers for depth - hidden on mobile for performance */}
-          <img 
-            src={dragonFireImage} 
-            alt="Secondary fire dragon"
-            className="hidden lg:block absolute top-0 right-0 transform translate-x-1/4 -translate-y-1/4 
-                       w-2/3 h-2/3 object-contain 
-                       animate-dragon-drift opacity-12 scale-75 
-                       filter blur-sm"
-          />
+          {/* Subtle cosmic glow overlay */}
+          <div className="absolute inset-0 bg-gradient-to-r from-primary/5 via-accent/3 to-primary/5 animate-pulse-glow"></div>
         </div>
         
-        {/* Enhanced gradient overlay for text readability */}
-        <div className="absolute inset-0 bg-gradient-to-t from-background/70 via-background/20 to-background/40"></div>
-        <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-background/50"></div>
+        {/* Professional gradient overlays for text readability */}
+        <div className="absolute inset-0 bg-gradient-to-t from-background/80 via-background/40 to-background/60"></div>
+        <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-background/70"></div>
       </div>
 
       {/* Animated particles background */}
