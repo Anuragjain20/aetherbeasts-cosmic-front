@@ -10,19 +10,19 @@ const HeroSection = () => {
         <img 
           src={heroImage} 
           alt="Mystical AetherBeast creature floating in cosmic space"
-          className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-full h-full object-cover animate-dragon-float animate-pulse-glow opacity-25 scale-110"
+          className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-full h-full object-cover animate-dragon-float animate-pulse-glow opacity-25 sm:scale-110 scale-125"
         />
-        {/* Secondary dragon for more movement */}
+        {/* Secondary dragon for more movement - hidden on mobile */}
         <img 
           src={heroImage} 
           alt="Secondary AetherBeast"
-          className="absolute top-1/4 right-0 transform translate-x-1/4 w-3/4 h-3/4 object-contain animate-dragon-drift opacity-15 scale-75"
+          className="hidden md:block absolute top-1/4 right-0 transform translate-x-1/4 w-3/4 h-3/4 object-contain animate-dragon-drift opacity-15 scale-75"
         />
-        {/* Third dragon for depth */}
+        {/* Third dragon for depth - hidden on mobile */}
         <img 
           src={heroImage} 
           alt="Tertiary AetherBeast"
-          className="absolute bottom-0 left-0 transform -translate-x-1/4 translate-y-1/4 w-2/3 h-2/3 object-contain animate-dragon-spiral opacity-10 scale-50"
+          className="hidden lg:block absolute bottom-0 left-0 transform -translate-x-1/4 translate-y-1/4 w-2/3 h-2/3 object-contain animate-dragon-spiral opacity-10 scale-50"
         />
         <div className="absolute inset-0 bg-gradient-to-t from-background/60 via-background/20 to-background/40"></div>
       </div>
