@@ -64,65 +64,67 @@ const HowItWorksSection = () => {
         </div>
 
         {/* Steps grid - Fixed container to prevent cutoff */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8 lg:gap-10 max-w-6xl mx-auto mb-12 sm:mb-16 lg:mb-20 px-2 sm:px-4">
-          {steps.map((step, index) => (
-            <div key={step.number} className="relative group">
-              {/* Connection line for desktop */}
-              {!isMobile && index < steps.length - 1 && (
-                <div className="hidden lg:block absolute top-16 left-full w-10 h-0.5 bg-gradient-to-r from-primary to-transparent z-0"></div>
-              )}
-              
-              <Card className="group relative overflow-visible bg-gradient-card border-border/50 
-                              hover:border-primary/50 transition-all duration-500 
-                              hover:shadow-glow hover:transform hover:scale-[1.02] will-change-transform h-full
-                              pt-4 mt-4"
-                    style={{ animationDelay: `${index * 0.15}s` }}>
-                <CardContent className="p-6 sm:p-8 space-y-4 sm:space-y-6 text-center relative">
-                  {/* Step number badge - Fixed positioning */}
-                  <div className="absolute -top-6 left-1/2 transform -translate-x-1/2">
-                    <Badge className={`${step.gradient} text-white font-bold text-sm sm:text-base 
-                                     px-4 sm:px-5 py-2 sm:py-2.5 rounded-full shadow-lg 
-                                     group-hover:scale-110 transition-transform duration-300`}>
-                      {step.number}
-                    </Badge>
-                  </div>
-
-                  {/* Icon */}
-                  <div className="text-4xl sm:text-5xl lg:text-6xl mb-4 group-hover:scale-110 
-                                 transition-transform duration-300 pt-2">
-                    {step.icon}
-                  </div>
-
-                  {/* Content */}
-                  <div className="space-y-3 sm:space-y-4">
-                    <h3 className="text-xl sm:text-2xl lg:text-3xl font-bold text-foreground 
-                                  group-hover:text-primary transition-colors duration-300">
-                      {step.title}
-                    </h3>
-                    <p className="text-sm sm:text-base lg:text-lg text-muted-foreground leading-relaxed">
-                      {step.description}
-                    </p>
-                    <div className="pt-2">
-                      <p className="text-xs sm:text-sm text-primary font-medium">
-                        {step.detail}
-                      </p>
+        <div className="px-2 sm:px-4 mb-12 sm:mb-16 lg:mb-20">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8 max-w-6xl mx-auto">
+            {steps.map((step, index) => (
+              <div key={step.number} className="relative group">
+                {/* Connection line for desktop */}
+                {!isMobile && index < steps.length - 1 && (
+                  <div className="hidden lg:block absolute top-12 left-full w-8 h-0.5 bg-gradient-to-r from-primary to-transparent z-0"></div>
+                )}
+                
+                {/* Card with proper padding for badges */}
+                <Card className="group relative overflow-visible bg-gradient-card border-border/50 
+                                hover:border-primary/50 transition-all duration-500 
+                                hover:shadow-glow hover:transform hover:scale-[1.02] will-change-transform h-full
+                                mt-4 mb-2">
+                  <CardContent className="p-6 sm:p-8 space-y-4 sm:space-y-6 relative">
+                    {/* Step number badge - Properly contained */}
+                    <div className="absolute -top-3 -right-3 z-10">
+                      <Badge className={`${step.gradient} text-white font-bold text-sm sm:text-base 
+                                       px-3 sm:px-4 py-1.5 sm:py-2 rounded-full shadow-lg 
+                                       group-hover:scale-110 transition-transform duration-300`}>
+                        {step.number}
+                      </Badge>
                     </div>
-                  </div>
 
-                  {/* Hover effect overlay */}
-                  <div className="absolute inset-0 bg-primary/5 opacity-0 group-hover:opacity-100 
-                                 transition-opacity duration-300 pointer-events-none rounded-lg"></div>
-                </CardContent>
-              </Card>
-            </div>
-          ))}
+                    {/* Icon */}
+                    <div className="text-4xl sm:text-5xl lg:text-6xl mb-4 group-hover:scale-110 
+                                   transition-transform duration-300 text-center sm:text-left">
+                      {step.icon}
+                    </div>
+
+                    {/* Content */}
+                    <div className="space-y-3 sm:space-y-4 text-center sm:text-left">
+                      <h3 className="text-xl sm:text-2xl lg:text-3xl font-bold text-foreground 
+                                    group-hover:text-primary transition-colors duration-300">
+                        {step.title}
+                      </h3>
+                      <p className="text-sm sm:text-base lg:text-lg text-muted-foreground leading-relaxed">
+                        {step.description}
+                      </p>
+                      <div className="pt-2">
+                        <p className="text-xs sm:text-sm text-primary font-medium">
+                          {step.detail}
+                        </p>
+                      </div>
+                    </div>
+
+                    {/* Hover effect overlay */}
+                    <div className="absolute inset-0 bg-primary/5 opacity-0 group-hover:opacity-100 
+                                   transition-opacity duration-300 pointer-events-none rounded-lg"></div>
+                  </CardContent>
+                </Card>
+              </div>
+            ))}
+          </div>
         </div>
 
         {/* Additional Info Section */}
-        <div className="max-w-4xl mx-auto">
+        <div className="max-w-4xl mx-auto px-2 sm:px-4">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 sm:gap-12 lg:gap-16 mb-12 sm:mb-16">
             {/* Getting Started */}
-            <div className="space-y-4 sm:space-y-6">
+            <div className="space-y-4 sm:space-y-6 text-center md:text-left">
               <h3 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-glow" 
                   style={{ fontFamily: 'Orbitron, monospace' }}>
                 Getting <span className="text-accent">Started</span>
@@ -150,7 +152,7 @@ const HowItWorksSection = () => {
             </div>
 
             {/* What Makes Us Different */}
-            <div className="space-y-4 sm:space-y-6">
+            <div className="space-y-4 sm:space-y-6 text-center md:text-left">
               <h3 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-glow" 
                   style={{ fontFamily: 'Orbitron, monospace' }}>
                 Why <span className="text-accent">Choose</span> Us?
@@ -162,7 +164,7 @@ const HowItWorksSection = () => {
                   { icon: "🌟", text: "Utility-driven with real gameplay value" },
                   { icon: "🤝", text: "Strong community and active development" }
                 ].map((feature, index) => (
-                  <div key={index} className="flex items-center space-x-3 sm:space-x-4">
+                  <div key={index} className="flex items-center justify-center md:justify-start space-x-3 sm:space-x-4">
                     <div className="text-xl sm:text-2xl flex-shrink-0">
                       {feature.icon}
                     </div>
@@ -176,7 +178,7 @@ const HowItWorksSection = () => {
           </div>
 
           {/* Call to Action */}
-          <div className="text-center space-y-6 sm:space-y-8 p-6 sm:p-8 lg:p-10 rounded-2xl 
+          <div className="text-center space-y-6 sm:space-y-8 p-6 sm:p-8 lg:p-12 rounded-2xl 
                          bg-gradient-card border border-border/50 hover:border-primary/50 
                          transition-all duration-300 hover:shadow-glow">
             <h3 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-glow" 
@@ -188,13 +190,13 @@ const HowItWorksSection = () => {
               Your legendary adventure starts here.
             </p>
             
-            <div className="flex flex-col xs:flex-row gap-4 sm:gap-6 justify-center max-w-lg mx-auto px-2">
+            <div className="flex flex-col sm:flex-row gap-4 sm:gap-6 justify-center max-w-lg mx-auto px-2">
               <Button 
                 size="lg"
                 className="bg-gradient-ethereal hover:shadow-glow transition-all duration-300 
                            hover:scale-105 font-semibold text-base sm:text-lg 
                            px-6 sm:px-8 lg:px-10 py-4 sm:py-5 lg:py-6 rounded-xl 
-                           w-full xs:w-auto min-w-[180px]"
+                           w-full sm:w-auto min-w-[180px]"
               >
                 Connect Wallet
               </Button>
@@ -204,7 +206,7 @@ const HowItWorksSection = () => {
                 className="border-2 border-primary/50 text-primary hover:bg-primary/10 
                            hover:border-primary/80 transition-all duration-300 
                            font-semibold text-base sm:text-lg px-6 sm:px-8 lg:px-10 
-                           py-4 sm:py-5 lg:py-6 rounded-xl w-full xs:w-auto min-w-[180px]"
+                           py-4 sm:py-5 lg:py-6 rounded-xl w-full sm:w-auto min-w-[180px]"
               >
                 View FAQ
               </Button>
