@@ -4,6 +4,7 @@ import { useState, useEffect } from "react";
 
 const AboutSection = () => {
   const [isMobile, setIsMobile] = useState(false);
+  const [expanded, setExpanded] = useState(false);
 
   useEffect(() => {
     const checkMobile = () => setIsMobile(window.innerWidth < 768);
@@ -47,23 +48,33 @@ const AboutSection = () => {
                 style={{ fontFamily: 'Orbitron, monospace' }}>
                 The Myth of the <span className="text-accent">Aetherial</span> Dawn
               </h2>
-              <div className="space-y-4 sm:space-y-6 text-base sm:text-lg lg:text-xl text-muted-foreground leading-relaxed">
-                <p>
-                  In the beginning, when the cosmos was but a whisper of stardust, the Aetherial Realm was born
-                  from the collision of five primal elements: <span className="text-accent font-semibold">Fire</span>, <span className="text-primary font-semibold">Storm</span>, <span className="text-cosmic-cyan font-semibold">Moon</span>, <span className="text-cosmic-green font-semibold">Spirit</span>, and <span className="text-cosmic-purple font-semibold">Stone</span>. These forces
-                  swirled in chaos, untamed and boundless, until the First Aetherion, a celestial dragon of radiant
-                  light, descended from the stars.
-                </p>
-                <p>
-                  With a single roar, it wove the elements into harmony, birthing the floating islands of the Realm—each
-                  a crucible of life, glowing with the pulse of creation. From the embers of volcanoes came <span className="text-accent font-semibold">Spryke</span>,
-                  its fiery tail crackling with storm-born lightning. In the moonlit mists emerged <span className="text-cosmic-cyan font-semibold">Lunethra</span>, its wings
-                  shimmering with crescent patterns, guiding lost souls with serene wisdom.
-                </p>
-                <p>
-                  Now, these mystical beings await their destined companions—brave souls who will unlock their ancient powers
-                  and forge legendary bonds that transcend the boundaries between realms.
-                </p>
+
+              {/* Read More Wrapper */}
+              <div>
+                <div className={`overflow-hidden transition-max-height duration-700 ease-in-out ${expanded ? 'max-h-[9999px]' : 'max-h-[300px]'} space-y-4 sm:space-y-6 text-base sm:text-lg lg:text-xl text-muted-foreground leading-relaxed`}>
+                  <p>
+                    In the beginning, when the cosmos was but a whisper of stardust, the Aetherial Realm was born
+                    from the collision of five primal elements: <span className="text-accent font-semibold">Fire</span>, <span className="text-primary font-semibold">Storm</span>, <span className="text-cosmic-cyan font-semibold">Moon</span>, <span className="text-cosmic-green font-semibold">Spirit</span>, and <span className="text-cosmic-purple font-semibold">Stone</span>. These forces
+                    swirled in chaos, untamed and boundless, until the First Aetherion, a celestial dragon of radiant
+                    light, descended from the stars.
+                  </p>
+                  <p>
+                    With a single roar, it wove the elements into harmony, birthing the floating islands of the Realm—each
+                    a crucible of life, glowing with the pulse of creation. From the embers of volcanoes came <span className="text-accent font-semibold">Spryke</span>,
+                    its fiery tail crackling with storm-born lightning. In the moonlit mists emerged <span className="text-cosmic-cyan font-semibold">Lunethra</span>, its wings
+                    shimmering with crescent patterns, guiding lost souls with serene wisdom.
+                  </p>
+                  <p>
+                    Now, these mystical beings await their destined companions—brave souls who will unlock their ancient powers
+                    and forge legendary bonds that transcend the boundaries between realms.
+                  </p>
+                </div>
+                <button
+                  className="mt-2 text-sm sm:text-base text-primary hover:underline focus:outline-none"
+                  onClick={() => setExpanded(!expanded)}
+                >
+                  {expanded ? "Read Less" : "Read More"}
+                </button>
               </div>
             </div>
 
@@ -93,7 +104,6 @@ const AboutSection = () => {
 
           {/* Right: Image + Features below it */}
           <div className="order-1 lg:order-2 space-y-8">
-            {/* Beast Image */}
             <div className="relative group">
               <div className="relative aspect-[4/5] sm:aspect-[3/4] lg:aspect-[4/5] overflow-hidden rounded-2xl 
                      border border-border/50 group-hover:border-primary/50 transition-all duration-500 
@@ -128,7 +138,6 @@ const AboutSection = () => {
                        transition-opacity duration-300 pointer-events-none"></div>
               </div>
 
-              {/* Decorative floating elements */}
               {!isMobile && (
                 <>
                   <div className="absolute -top-4 -right-4 w-24 h-24 bg-cosmic-green/20 rounded-full blur-xl animate-float" />
@@ -140,31 +149,30 @@ const AboutSection = () => {
           </div>
         </div>
 
-
         {/* Features Grid — now below image */}
         <div className="grid grid-cols-1 xs:grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4 sm:gap-6 lg:gap-8 mt-8 sm:mt-12">
-              {features.map((feature, index) => (
-                <div key={feature.title}
-                  className="group p-4 sm:p-6 rounded-xl bg-gradient-card border border-border/50 
-                       hover:border-primary/50 transition-all duration-300 hover:shadow-glow 
-                       hover:transform hover:scale-[1.02] will-change-transform"
-                  style={{ animationDelay: `${index * 0.1}s` }}>
-                  <div className="flex items-start space-x-3 sm:space-x-4">
-                    <div className="text-2xl sm:text-3xl lg:text-4xl group-hover:scale-110 transition-transform duration-300 flex-shrink-0">
-                      {feature.icon}
-                    </div>
-                    <div className="space-y-2">
-                      <h3 className="text-lg sm:text-xl lg:text-2xl font-bold text-foreground group-hover:text-primary transition-colors duration-300">
-                        {feature.title}
-                      </h3>
-                      <p className="text-sm sm:text-base text-muted-foreground leading-relaxed">
-                        {feature.description}
-                      </p>
-                    </div>
-                  </div>
+          {features.map((feature, index) => (
+            <div key={feature.title}
+              className="group p-4 sm:p-6 rounded-xl bg-gradient-card border border-border/50 
+                   hover:border-primary/50 transition-all duration-300 hover:shadow-glow 
+                   hover:transform hover:scale-[1.02] will-change-transform"
+              style={{ animationDelay: `${index * 0.1}s` }}>
+              <div className="flex items-start space-x-3 sm:space-x-4">
+                <div className="text-2xl sm:text-3xl lg:text-4xl group-hover:scale-110 transition-transform duration-300 flex-shrink-0">
+                  {feature.icon}
                 </div>
-              ))}
+                <div className="space-y-2">
+                  <h3 className="text-lg sm:text-xl lg:text-2xl font-bold text-foreground group-hover:text-primary transition-colors duration-300">
+                    {feature.title}
+                  </h3>
+                  <p className="text-sm sm:text-base text-muted-foreground leading-relaxed">
+                    {feature.description}
+                  </p>
+                </div>
+              </div>
             </div>
+          ))}
+        </div>
       </div>
 
       {/* Background effects */}

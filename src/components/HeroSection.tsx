@@ -181,7 +181,7 @@ const HeroSection = () => {
           <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 sm:gap-4 max-w-4xl mx-auto px-2 sm:px-4">
             {[
               { label: "Total Supply", value: "10,000", icon: "💎" },
-              { label: "Mint Price", value: "0.08 ETH", icon: "⚡" },
+              { label: "Mint Price", value: "0.05 WETH", icon: "⚡" },
               { label: "Max per Wallet", value: "5", icon: "👛" },
               { label: "Launching", value: "Soon", icon: "🚀" }
             ].map((stat, index) => (

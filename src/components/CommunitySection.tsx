@@ -54,69 +54,7 @@ const CommunitySection = () => {
   return (
     <section id="community" className="py-16 sm:py-20 lg:py-24 px-4 sm:px-6 lg:px-8 relative">
       <div className="container mx-auto max-w-7xl">
-        {/* Section Header */}
-        <div className="text-center mb-12 sm:mb-16 lg:mb-20 space-y-4 sm:space-y-6">
-          <h2 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-glow leading-tight" 
-              style={{ fontFamily: 'Orbitron, monospace' }}>
-            Join Our <span className="text-accent">Community</span>
-          </h2>
-          <p className="text-lg sm:text-xl lg:text-2xl text-muted-foreground max-w-4xl mx-auto leading-relaxed px-2">
-            Connect with fellow collectors, share your adventures, and shape the future of the Aetherial Realm together
-          </p>
-        </div>
-
-        {/* Social Platform Grid */}
-        <div className="mb-12 sm:mb-16 lg:mb-20">
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 lg:gap-8">
-            {socialPlatforms.map((platform, index) => (
-              <Card key={platform.name} 
-                    className={`group relative overflow-hidden bg-gradient-card border-border/50 
-                               ${platform.hoverColor} transition-all duration-500 
-                               hover:shadow-glow hover:transform hover:scale-[1.02] will-change-transform h-full`}
-                    style={{ animationDelay: `${index * 0.1}s` }}>
-                <CardContent className="p-6 sm:p-8 text-center space-y-4 sm:space-y-6 relative">
-                  {/* Background gradient */}
-                  <div className={`absolute inset-0 ${platform.gradient} opacity-50 group-hover:opacity-70 
-                                  transition-opacity duration-300`}></div>
-                  
-                  {/* Content */}
-                  <div className="relative z-10 space-y-4 sm:space-y-6">
-                    {/* Icon and Platform */}
-                    <div className="space-y-3">
-                      <div className="text-4xl sm:text-5xl lg:text-6xl mb-2 group-hover:scale-110 
-                                     transition-transform duration-300">
-                        {platform.icon}
-                      </div>
-                      <h3 className="text-xl sm:text-2xl lg:text-3xl font-bold text-foreground 
-                                    group-hover:text-primary transition-colors duration-300">
-                        {platform.name}
-                      </h3>
-                    </div>
-
-                    {/* Description */}
-                    <p className="text-sm sm:text-base text-muted-foreground leading-relaxed px-2">
-                      {platform.description}
-                    </p>
-
-                    {/* Join Button */}
-                    <Button 
-                      size="sm"
-                      className="bg-primary/10 border border-primary/50 text-primary hover:bg-primary hover:text-primary-foreground 
-                                transition-all duration-300 w-full font-semibold text-sm sm:text-base py-2 sm:py-3"
-                    >
-                      Join {platform.name}
-                    </Button>
-                  </div>
-
-                  {/* Hover effect overlay */}
-                  <div className="absolute inset-0 bg-primary/5 opacity-0 group-hover:opacity-100 
-                                 transition-opacity duration-300"></div>
-                </CardContent>
-              </Card>
-            ))}
-          </div>
-        </div>
-
+        
         {/* Community Highlights */}
         <div className="mb-12 sm:mb-16 lg:mb-20">
           <div className="text-center mb-8 sm:mb-12">
@@ -163,43 +101,15 @@ const CommunitySection = () => {
                 💎
               </div>
               <h4 className="text-lg sm:text-xl lg:text-2xl font-bold text-foreground">
-                Exclusive Access
+                Wallet-to-Wallet Battles
               </h4>
               <p className="text-sm sm:text-base text-muted-foreground leading-relaxed">
-                Get early access to new drops and special community-only events
+                Battle NFTs wallet-to-wallet, dominate PvP, and climb the global leaderboard ranks
               </p>
             </div>
           </div>
         </div>
 
-        {/* Community Stats */}
-        <div className="mb-12 sm:mb-16 lg:mb-20">
-          <div className="text-center mb-8 sm:mb-12">
-            <h3 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-glow mb-3 sm:mb-4" 
-                style={{ fontFamily: 'Orbitron, monospace' }}>
-              By The <span className="text-accent">Numbers</span>
-            </h3>
-          </div>
-
-          <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 lg:gap-8 max-w-5xl mx-auto">
-            {communityStats.map((stat, index) => (
-              <div key={stat.label} 
-                   className="text-center space-y-3 sm:space-y-4 p-4 sm:p-6 lg:p-8 rounded-2xl bg-gradient-card 
-                             border border-border/50 hover:border-primary/50 transition-all duration-300 
-                             hover:shadow-glow group">
-                <div className="text-2xl sm:text-3xl lg:text-4xl group-hover:scale-110 transition-transform duration-300">
-                  {stat.icon}
-                </div>
-                <div className={`text-2xl sm:text-3xl lg:text-4xl font-black ${stat.color}`}>
-                  {stat.value}
-                </div>
-                <div className="text-xs sm:text-sm text-muted-foreground font-medium leading-tight px-1">
-                  {stat.label}
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
 
         {/* Call to Action */}
         <div className="text-center space-y-6 sm:space-y-8">
