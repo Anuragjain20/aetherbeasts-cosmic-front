@@ -81,7 +81,7 @@ const GallerySection = () => {
   const featuredBeasts = beasts.slice(0, 3);
 
   return (
-    <section id="gallery" className="py-16 sm:py-20 lg:py-24 px-4 sm:px-6 lg:px-8 relative">
+    <section id="gallery" className="pt-12 sm:pt-14 lg:pt-16 pb-16 sm:pb-20 lg:pb-24 px-4 sm:px-6 lg:px-8 relative">
       <div className="container mx-auto max-w-7xl">
         {/* Section header */}
         <div className="text-center mb-12 sm:mb-16 lg:mb-20 space-y-4 sm:space-y-6">

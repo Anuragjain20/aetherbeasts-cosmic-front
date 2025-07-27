@@ -50,7 +50,7 @@ const HowItWorksSection = () => {
   ];
 
   return (
-    <section id="how-it-works" className="py-16 sm:py-20 lg:py-24 px-4 sm:px-6 lg:px-8 relative">
+    <section id="how-it-works" className="pb-12 sm:pb-14 lg:pb-16 pt-16 sm:pt-20 lg:pt-24 px-4 sm:px-6 lg:px-8 relative">
       <div className="container mx-auto max-w-7xl">
         {/* Section header */}
         <div className="text-center mb-12 sm:mb-16 lg:mb-20 space-y-4 sm:space-y-6">
@@ -117,64 +117,6 @@ const HowItWorksSection = () => {
                 </Card>
               </div>
             ))}
-          </div>
-        </div>
-
-        {/* Additional Info Section */}
-        <div className="max-w-4xl mx-auto px-2 sm:px-4">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 sm:gap-12 lg:gap-16 mb-12 sm:mb-16">
-            {/* Getting Started */}
-            <div className="space-y-4 sm:space-y-6 text-center md:text-left">
-              <h3 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-glow" 
-                  style={{ fontFamily: 'Orbitron, monospace' }}>
-                Getting <span className="text-accent">Started</span>
-              </h3>
-              <div className="space-y-3 sm:space-y-4 text-sm sm:text-base text-muted-foreground leading-relaxed">
-                <p>
-                  New to Web3? No problem! Our onboarding process guides you through every step, 
-                  from setting up your first wallet to understanding blockchain basics.
-                </p>
-                <p>
-                  Each AetherBeast is a unique NFT with verifiable ownership and rarity, 
-                  ensuring your collection has real value and authenticity.
-                </p>
-              </div>
-              <div className="pt-2">
-                <Button 
-                  variant="outline"
-                  className="border-2 border-primary/50 text-primary hover:bg-primary/10 
-                            hover:border-primary/80 transition-all duration-300 
-                            font-semibold text-sm sm:text-base px-4 sm:px-6 py-2 sm:py-3 rounded-lg"
-                >
-                  Beginner's Guide
-                </Button>
-              </div>
-            </div>
-
-            {/* What Makes Us Different */}
-            <div className="space-y-4 sm:space-y-6 text-center md:text-left">
-              <h3 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-glow" 
-                  style={{ fontFamily: 'Orbitron, monospace' }}>
-                Why <span className="text-accent">Choose</span> Us?
-              </h3>
-              <div className="space-y-3 sm:space-y-4">
-                {[
-                  { icon: "🎯", text: "Fair & transparent minting process" },
-                  { icon: "🔐", text: "Secure smart contract audited by experts" },
-                  { icon: "🌟", text: "Utility-driven with real gameplay value" },
-                  { icon: "🤝", text: "Strong community and active development" }
-                ].map((feature, index) => (
-                  <div key={index} className="flex items-center justify-center md:justify-start space-x-3 sm:space-x-4">
-                    <div className="text-xl sm:text-2xl flex-shrink-0">
-                      {feature.icon}
-                    </div>
-                    <p className="text-sm sm:text-base text-muted-foreground">
-                      {feature.text}
-                    </p>
-                  </div>
-                ))}
-              </div>
-            </div>
           </div>
         </div>
       </div>
