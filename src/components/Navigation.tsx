@@ -1,10 +1,17 @@
 import { Button } from "@/components/ui/button";
-import { Menu, X } from "lucide-react";
+import { Menu, X, Wallet, ChevronDown } from "lucide-react";
 import { useState, useEffect } from "react";
+import { useAccount, useDisconnect } from 'wagmi'
+import { useWallet } from '@/context/WalletContext'
+import WalletModal from './WalletModal'
+import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from "@/components/ui/dropdown-menu";
 
 const Navigation = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
+  const { address, isConnected } = useAccount()
+  const { disconnect } = useDisconnect()
+  const { isWalletModalOpen, setIsWalletModalOpen } = useWallet()
 
   useEffect(() => {
     const handleScroll = () => {
@@ -22,6 +29,19 @@ const Navigation = () => {
     }
     setIsMenuOpen(false);
   };
+
+  const formatAddress = (address: string) => {
+    return `${address.slice(0, 6)}...${address.slice(-4)}`
+  }
+
+  const handleConnectWallet = () => {
+    setIsWalletModalOpen(true)
+  }
+
+  const handleDisconnect = () => {
+    disconnect()
+    setIsMenuOpen(false)
+  }
 
   return (
     <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 w-full ${
@@ -67,17 +87,45 @@ const Navigation = () => {
               </button>
             ))}
             
-            <Button 
-              className="relative overflow-hidden bg-gradient-cosmic hover:shadow-cosmic 
-                        transition-all duration-300 hover:scale-105 font-semibold 
-                        px-4 xl:px-6 py-2 xl:py-3 rounded-lg border border-primary/30
-                        hover:border-primary/60 touch-target group"
-              style={{ fontSize: 'clamp(0.75rem, 1.5vw, 0.875rem)' }}
-            >
-              <span className="relative z-10">Connect Wallet</span>
-              <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent 
-                             -translate-x-full group-hover:translate-x-full transition-transform duration-1000"></div>
-            </Button>
+            {isConnected ? (
+              <DropdownMenu>
+                <DropdownMenuTrigger asChild>
+                  <Button 
+                    className="relative overflow-hidden bg-gradient-cosmic hover:shadow-cosmic 
+                              transition-all duration-300 hover:scale-105 font-semibold 
+                              px-4 xl:px-6 py-2 xl:py-3 rounded-lg border border-primary/30
+                              hover:border-primary/60 touch-target group"
+                    style={{ fontSize: 'clamp(0.75rem, 1.5vw, 0.875rem)' }}
+                  >
+                    <span className="relative z-10 flex items-center gap-2">
+                      <Wallet className="h-4 w-4" />
+                      {formatAddress(address!)}
+                      <ChevronDown className="h-3 w-3" />
+                    </span>
+                    <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent 
+                                   -translate-x-full group-hover:translate-x-full transition-transform duration-1000"></div>
+                  </Button>
+                </DropdownMenuTrigger>
+                <DropdownMenuContent align="end" className="w-48">
+                  <DropdownMenuItem onClick={handleDisconnect} className="text-destructive">
+                    Disconnect Wallet
+                  </DropdownMenuItem>
+                </DropdownMenuContent>
+              </DropdownMenu>
+            ) : (
+              <Button 
+                onClick={handleConnectWallet}
+                className="relative overflow-hidden bg-gradient-cosmic hover:shadow-cosmic 
+                          transition-all duration-300 hover:scale-105 font-semibold 
+                          px-4 xl:px-6 py-2 xl:py-3 rounded-lg border border-primary/30
+                          hover:border-primary/60 touch-target group"
+                style={{ fontSize: 'clamp(0.75rem, 1.5vw, 0.875rem)' }}
+              >
+                <span className="relative z-10">Connect Wallet</span>
+                <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent 
+                               -translate-x-full group-hover:translate-x-full transition-transform duration-1000"></div>
+              </Button>
+            )}
           </div>
 
           {/* Mobile Menu Button */}
@@ -118,23 +166,51 @@ const Navigation = () => {
             ))}
             
             <div className="pt-2">
-              <Button 
-                className="relative group w-full overflow-hidden
-                          bg-gradient-cosmic hover:shadow-cosmic transition-all duration-300 
-                          font-semibold py-4 rounded-lg border border-primary/30
-                          hover:border-primary/60 touch-target active:scale-[0.98]"
-              >
-                <span className="relative z-10 flex items-center justify-center gap-2">
-                  <span className="text-lg">🔗</span>
-                  <span>Connect Wallet</span>
-                </span>
-                <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent 
-                               -translate-x-full group-hover:translate-x-full transition-transform duration-1000"></div>
-              </Button>
+              {isConnected ? (
+                <div className="space-y-2">
+                  <div className="p-3 bg-primary/10 rounded-lg border border-primary/20">
+                    <p className="text-sm font-medium text-primary flex items-center gap-2">
+                      <Wallet className="h-4 w-4" />
+                      Connected
+                    </p>
+                    <p className="text-xs text-muted-foreground mt-1">
+                      {formatAddress(address!)}
+                    </p>
+                  </div>
+                  <Button 
+                    onClick={handleDisconnect}
+                    variant="outline"
+                    className="w-full py-4 touch-target active:scale-[0.98] text-destructive border-destructive/20 hover:bg-destructive/10"
+                  >
+                    Disconnect Wallet
+                  </Button>
+                </div>
+              ) : (
+                <Button 
+                  onClick={handleConnectWallet}
+                  className="relative group w-full overflow-hidden
+                            bg-gradient-cosmic hover:shadow-cosmic transition-all duration-300 
+                            font-semibold py-4 rounded-lg border border-primary/30
+                            hover:border-primary/60 touch-target active:scale-[0.98]"
+                >
+                  <span className="relative z-10 flex items-center justify-center gap-2">
+                    <span className="text-lg">🔗</span>
+                    <span>Connect Wallet</span>
+                  </span>
+                  <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent 
+                                 -translate-x-full group-hover:translate-x-full transition-transform duration-1000"></div>
+                </Button>
+              )}
             </div>
           </div>
         </div>
       </div>
+
+      {/* Wallet Modal */}
+      <WalletModal 
+        isOpen={isWalletModalOpen} 
+        onClose={() => setIsWalletModalOpen(false)} 
+      />
     </nav>
   );
 };
