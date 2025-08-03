@@ -1,6 +1,7 @@
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { useState, useEffect } from "react";
+import { trackSocialClick, trackButtonClick } from "@/lib/analytics";
 
 const CommunitySection = () => {
   const [isMobile, setIsMobile] = useState(false);
@@ -19,28 +20,32 @@ const CommunitySection = () => {
       icon: "🎮",
       description: "Join our vibrant community for daily challenges and exclusive drops",
       gradient: "bg-gradient-to-br from-indigo-500/20 to-purple-600/20",
-      hoverColor: "hover:border-indigo-500/50"
+      hoverColor: "hover:border-indigo-500/50",
+      url: "https://discord.gg/VW3dQ43d"
     },
     {
       name: "Twitter",
       icon: "🐦",
       description: "Follow for real-time updates, sneak peeks, and community highlights",
       gradient: "bg-gradient-to-br from-blue-400/20 to-blue-600/20",
-      hoverColor: "hover:border-blue-500/50"
+      hoverColor: "hover:border-blue-500/50",
+      url: "https://twitter.com/aetherbeastneft"
     },
     {
       name: "Instagram",
       icon: "📸",
       description: "Discover stunning artwork and behind-the-scenes content from our community",
       gradient: "bg-gradient-to-br from-pink-500/20 to-purple-500/20",
-      hoverColor: "hover:border-pink-500/50"
+      hoverColor: "hover:border-pink-500/50",
+      url: "https://www.instagram.com/aetherbeast_official?igsh=MWZpeHMxMnQxZzJzdg=="
     },
     {
       name: "Telegram",
       icon: "📺",
       description: "Connect with us for announcements, discussions, and community events",
       gradient: "bg-gradient-to-br from-red-500/20 to-red-600/20",
-      hoverColor: "hover:border-red-500/50"
+      hoverColor: "hover:border-red-500/50",
+      url: "https://t.me/+51hibO7OnLc5NWE1"
     }
   ];
 
@@ -50,6 +55,15 @@ const CommunitySection = () => {
     { label: "Community Support", value: "24/7", icon: "🛡️", color: "text-cosmic-cyan" },
     { label: "Satisfaction Rate", value: "98%", icon: "⭐", color: "text-cosmic-green" }
   ];
+
+  const handleSocialClick = (platform: string, url: string) => {
+    trackSocialClick(platform);
+    window.open(url, '_blank', 'noopener,noreferrer');
+  };
+
+  const handleButtonClick = (buttonName: string) => {
+    trackButtonClick(buttonName, 'community_section');
+  };
 
   return (
     <section id="community" className="py-16 sm:py-20 lg:py-24 px-4 sm:px-6 lg:px-8 relative">
@@ -110,6 +124,41 @@ const CommunitySection = () => {
           </div>
         </div>
 
+        {/* Social Media Platforms */}
+        <div className="mb-12 sm:mb-16 lg:mb-20">
+          <div className="text-center mb-8 sm:mb-12">
+            <h3 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-glow mb-3 sm:mb-4" 
+                style={{ fontFamily: 'Orbitron, monospace' }}>
+              Join Our <span className="text-accent">Community</span>
+            </h3>
+            <p className="text-base sm:text-lg text-muted-foreground max-w-2xl mx-auto px-2">
+              Connect with fellow AetherBeasts enthusiasts across all platforms.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8 max-w-6xl mx-auto">
+            {socialPlatforms.map((platform) => (
+              <Card 
+                key={platform.name}
+                className={`cursor-pointer transition-all duration-300 hover:shadow-glow border border-border/50 
+                           ${platform.gradient} ${platform.hoverColor} group`}
+                onClick={() => handleSocialClick(platform.name.toLowerCase(), platform.url)}
+              >
+                <CardContent className="p-6 sm:p-8 text-center space-y-4">
+                  <div className="text-4xl sm:text-5xl group-hover:scale-110 transition-transform duration-300">
+                    {platform.icon}
+                  </div>
+                  <h4 className="text-lg sm:text-xl font-bold text-foreground">
+                    {platform.name}
+                  </h4>
+                  <p className="text-sm text-muted-foreground leading-relaxed">
+                    {platform.description}
+                  </p>
+                </CardContent>
+              </Card>
+            ))}
+          </div>
+        </div>
 
         {/* Call to Action */}
         <div className="text-center space-y-6 sm:space-y-8">
@@ -128,6 +177,10 @@ const CommunitySection = () => {
                          hover:scale-105 font-semibold text-base sm:text-lg 
                          px-6 sm:px-8 lg:px-10 py-4 sm:py-5 lg:py-6 rounded-xl 
                          w-full xs:w-auto min-w-[180px]"
+              onClick={() => {
+                handleButtonClick('join_discord');
+                handleSocialClick('discord', 'https://discord.gg/VW3dQ43d');
+              }}
             >
               Join Discord
             </Button>
@@ -138,6 +191,10 @@ const CommunitySection = () => {
                          hover:border-primary/80 transition-all duration-300 
                          font-semibold text-base sm:text-lg px-6 sm:px-8 lg:px-10 
                          py-4 sm:py-5 lg:py-6 rounded-xl w-full xs:w-auto min-w-[180px]"
+              onClick={() => {
+                handleButtonClick('follow_twitter');
+                handleSocialClick('twitter', 'https://twitter.com/aetherbeastneft');
+              }}
             >
               Follow Twitter
             </Button>

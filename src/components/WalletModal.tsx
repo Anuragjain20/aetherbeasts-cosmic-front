@@ -7,6 +7,7 @@ import { useConnect, useAccount } from 'wagmi'
 import { useWallet } from '@/context/WalletContext'
 import QRCode from 'qrcode'
 import { toast } from 'sonner'
+import { trackWalletConnection, trackButtonClick } from '@/lib/analytics'
 
 interface WalletModalProps {
   isOpen: boolean
@@ -51,6 +52,10 @@ const WalletModal = ({ isOpen, onClose }: WalletModalProps) => {
   }, [showQRCode, selectedWallet, data])
 
   const handleWalletConnect = (connector: any) => {
+    // Track wallet connection attempt
+    trackWalletConnection(connector.id);
+    trackButtonClick(`connect_${connector.id}`, 'wallet_modal');
+    
     if (connector.id === 'walletConnect') {
       setSelectedWallet('walletConnect')
       setShowQRCode(true)

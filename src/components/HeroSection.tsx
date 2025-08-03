@@ -1,6 +1,7 @@
 import { Button } from "@/components/ui/button";
 import dragonFireImage from "@/assets/dragon-fire-hero.jpg";
 import { useEffect, useState } from "react";
+import { trackButtonClick } from "@/lib/analytics";
 
 const HeroSection = () => {
   const [isMobile, setIsMobile] = useState(false);
@@ -110,6 +111,7 @@ const HeroSection = () => {
                     text-white font-semibold px-6 py-4 sm:px-8 rounded-xl border-2 
                     border-primary/20 hover:border-accent/50 shadow-lg hover:shadow-glow 
                     transform hover:scale-[1.02] active:scale-[0.98] transition-all duration-300"
+              onClick={() => trackButtonClick('join_drop', 'hero_section')}
             >
               <span className="flex items-center gap-2">
                 🚀 <span>Join the Drop</span>
@@ -122,6 +124,7 @@ const HeroSection = () => {
                     hover:border-primary/50 text-primary hover:text-white hover:bg-primary 
                     font-semibold px-6 py-4 sm:px-8 rounded-xl shadow-lg hover:shadow-accent-glow 
                     transform hover:scale-[1.02] active:scale-[0.98] transition-all duration-300"
+              onClick={() => trackButtonClick('learn_more', 'hero_section')}
             >
               <span className="flex items-center gap-2">📖 <span>Learn More</span></span>
             </Button>

@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import { trackSocialClick, trackButtonClick } from "@/lib/analytics";
 
 const Footer = () => {
   const [isMobile, setIsMobile] = useState(false);
@@ -10,6 +11,15 @@ const Footer = () => {
     window.addEventListener('resize', checkMobile);
     return () => window.removeEventListener('resize', checkMobile);
   }, []);
+
+  const handleSocialClick = (platform: string, url: string) => {
+    trackSocialClick(platform);
+    window.open(url, '_blank', 'noopener,noreferrer');
+  };
+
+  const handleButtonClick = (buttonName: string) => {
+    trackButtonClick(buttonName, 'footer');
+  };
 
   const footerSections = [
     {
@@ -24,10 +34,10 @@ const Footer = () => {
     {
       title: "Community",
       links: [
-        { name: "Discord", href: "#", icon: "🎮" },
-        { name: "Twitter", href: "#", icon: "🐦" },
-        { name: "Instagram", href: "#", icon: "📸" },
-        { name: "YouTube", href: "#", icon: "📺" }
+        { name: "Discord", href: "https://discord.gg/VW3dQ43d", icon: "🎮" },
+        { name: "Twitter", href: "https://twitter.com/aetherbeastneft", icon: "🐦" },
+        { name: "Instagram", href: "https://www.instagram.com/aetherbeast_official?igsh=MWZpeHMxMnQxZzJzdg==", icon: "📸" },
+        { name: "Telegram", href: "https://t.me/+51hibO7OnLc5NWE1", icon: "📺" }
       ]
     },
     {
@@ -101,6 +111,12 @@ const Footer = () => {
                   <a 
                     key={linkIndex}
                     href={link.href} 
+                    onClick={(e) => {
+                      if (section.title === "Community") {
+                        e.preventDefault();
+                        handleSocialClick(link.name.toLowerCase(), link.href);
+                      }
+                    }}
                     className="flex items-center space-x-2 sm:space-x-3 text-muted-foreground 
                              hover:text-primary transition-colors duration-300 group text-sm sm:text-base"
                   >
@@ -156,14 +172,18 @@ const Footer = () => {
             {/* Social Links */}
             <div className="flex items-center space-x-4 sm:space-x-6">
               {[
-                { name: "Discord", icon: "🎮", href: "#" },
-                { name: "Twitter", icon: "🐦", href: "#" },
-                { name: "Instagram", icon: "📸", href: "#" },
-                { name: "YouTube", icon: "📺", href: "#" }
+                { name: "Discord", icon: "🎮", href: "https://discord.gg/VW3dQ43d" },
+                { name: "Twitter", icon: "🐦", href: "https://twitter.com/aetherbeastneft" },
+                { name: "Instagram", icon: "📸", href: "https://www.instagram.com/aetherbeast_official?igsh=MWZpeHMxMnQxZzJzdg==" },
+                { name: "Telegram", icon: "📺", href: "https://t.me/+51hibO7OnLc5NWE1" }
               ].map((social, index) => (
                 <a 
                   key={index}
                   href={social.href}
+                  onClick={(e) => {
+                    e.preventDefault();
+                    handleSocialClick(social.name.toLowerCase(), social.href);
+                  }}
                   className="w-10 h-10 sm:w-12 sm:h-12 bg-background/50 border border-border/50 
                            rounded-lg flex items-center justify-center hover:bg-primary/10 
                            hover:border-primary/50 transition-all duration-300 hover:scale-110 group"
@@ -178,7 +198,10 @@ const Footer = () => {
 
             {/* Scroll to top */}
             <button 
-              onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+              onClick={() => {
+                handleButtonClick('scroll_to_top');
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+              }}
               className="w-10 h-10 sm:w-12 sm:h-12 bg-primary/10 border border-primary/50 
                          rounded-lg flex items-center justify-center hover:bg-primary/20 
                          hover:border-primary/80 transition-all duration-300 hover:scale-110 group"
